@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :prayers
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :url => "/images/:class/:attachment/:id/:style/:basename.:extension",:path => ":rails_root/public/images/:class/:attachment/:id/:style/:basename.:extension"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :url => "/config/:class/:attachment/:id/:style/:basename.:extension",:path => ":rails_root/public/config/:class/:attachment/:id/:style/:basename.:extension"
 
 
   set_table_name 'users'

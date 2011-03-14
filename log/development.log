@@ -1,0 +1,730 @@
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/vendor/plugins/paperclip/rails/init.rb. (called from <top (required)> at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from join at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/initializers/koala.rb:2)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/vendor/plugins/paperclip/rails/init.rb. (called from <top (required)> at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from join at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/initializers/koala.rb:2)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 17:34:44 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3002/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 17:34:44 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (3.5ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-03-14 17:34:47 +0530
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/login (86.5ms)
+Completed 200 OK in 201ms (Views: 91.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 17:35:10 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z9Yzf63at+1gDl1VXs+OOK2ScznkAw0nDbLksjYC/jg=", "userr"=>{"login"=>"narad", "email"=>"narad@gmaill.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xa01e6a4 @original_filename="car.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"car.jpeg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-6787-1qju0co>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-6787-9wk9xz.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-6787-9wk9xz.jpeg[0]' -resize "300x300>" '/tmp/stream20110314-6787-9wk9xz20110314-6787-1unz07v' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-6787-9wk9xz.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-6787-9wk9xz.jpeg[0]' -resize "100x100>" '/tmp/stream20110314-6787-9wk9xz20110314-6787-1ylak1h' 2>/dev/null
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'narad') LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'narad@gmaill.com') LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `users`[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('narad', '', 'narad@gmaill.com', 'd83b129d8567b7bbaa3e8d14e6752ed3db9108fd', '3159d1f6c539f13d96141cf1532edfa5a52627d5', '2011-03-14 12:05:10', '2011-03-14 12:05:10', NULL, NULL, 'car.jpeg', 'image/jpeg', 2328, '2011-03-14 12:05:10', NULL)
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/
+  [1m[36mSQL (48.0ms)[0m  [1mROLLBACK[0m
+Completed   in 421ms
+
+Errno::EACCES (Permission denied - (/tmp/stream20110314-6787-9wk9xz20110314-6787-1unz07v, /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/stream20110314-6787-9wk9xz20110314-6787-1unz07v)):
+  app/controllers/users_controller.rb:44:in `create'
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 17:36:46 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z9Yzf63at+1gDl1VXs+OOK2ScznkAw0nDbLksjYC/jg=", "userr"=>{"login"=>"narad", "email"=>"narad@gmaill.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x96884b4 @original_filename="car.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"car.jpeg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-6787-fjvx4k>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-6787-5c95x9.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-6787-5c95x9.jpeg[0]' -resize "300x300>" '/tmp/stream20110314-6787-5c95x920110314-6787-1oald0u' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-6787-5c95x9.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-6787-5c95x9.jpeg[0]' -resize "100x100>" '/tmp/stream20110314-6787-5c95x920110314-6787-m81va3' 2>/dev/null
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'narad') LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'narad@gmaill.com') LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `users`[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('narad', '', 'narad@gmaill.com', '2ed10da7c6441bf58d888551b6ffffaedc7bb96d', '5abed0fabc5280318e1dfa606c0d30ec519a267f', '2011-03-14 12:06:46', '2011-03-14 12:06:46', NULL, NULL, 'car.jpeg', 'image/jpeg', 2328, '2011-03-14 12:06:46', NULL)
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/
+  [1m[36mSQL (54.6ms)[0m  [1mROLLBACK[0m
+Completed   in 340ms
+
+Errno::EACCES (Permission denied - (/tmp/stream20110314-6787-5c95x920110314-6787-1oald0u, /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/stream20110314-6787-5c95x920110314-6787-1oald0u)):
+  app/controllers/users_controller.rb:44:in `create'
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.8ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.4ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/vendor/plugins/paperclip/rails/init.rb. (called from <top (required)> at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from join at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/initializers/koala.rb:2)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/vendor/plugins/paperclip/rails/init.rb. (called from <top (required)> at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from join at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/initializers/koala.rb:2)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 17:38:06 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3002/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 17:38:06 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (4.9ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-03-14 17:38:09 +0530
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/login (52.0ms)
+Completed 200 OK in 151ms (Views: 55.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 17:38:29 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z9Yzf63at+1gDl1VXs+OOK2ScznkAw0nDbLksjYC/jg=", "userr"=>{"login"=>"sharad", "email"=>"sharad@gmaill.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xad68cc4 @original_filename="car.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"car.jpeg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-6897-1xlqhvu>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-6897-c56sfj.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-6897-c56sfj.jpeg[0]' -resize "300x300>" '/tmp/stream20110314-6897-c56sfj20110314-6897-zdhls4' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-6897-c56sfj.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-6897-c56sfj.jpeg[0]' -resize "100x100>" '/tmp/stream20110314-6897-c56sfj20110314-6897-wim1bg' 2>/dev/null
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'sharad') LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'sharad@gmaill.com') LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `users`[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('sharad', '', 'sharad@gmaill.com', 'b88cb8dd7a63e947c195364b66bb318694176610', '9cac7e4e008d38fa0bc6d61ffbc506657dfc09b7', '2011-03-14 12:08:30', '2011-03-14 12:08:30', NULL, NULL, 'car.jpeg', 'image/jpeg', 2328, '2011-03-14 12:08:29', NULL)
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/
+  [1m[36mSQL (47.3ms)[0m  [1mROLLBACK[0m
+Completed   in 425ms
+
+Errno::EACCES (Permission denied - (/tmp/stream20110314-6897-c56sfj20110314-6897-zdhls4, /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/stream20110314-6897-c56sfj20110314-6897-zdhls4)):
+  app/controllers/users_controller.rb:44:in `create'
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.7ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.9ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/vendor/plugins/paperclip/rails/init.rb. (called from <top (required)> at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from join at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/initializers/koala.rb:2)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 17:39:55 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z9Yzf63at+1gDl1VXs+OOK2ScznkAw0nDbLksjYC/jg=", "userr"=>{"login"=>"sharad", "email"=>"sharad@gmaill.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x9bc99f0 @original_filename="car.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"car.jpeg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-6975-1ufdhbo>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-6975-19w9hyn.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-6975-19w9hyn.jpeg[0]' -resize "300x300>" '/tmp/stream20110314-6975-19w9hyn20110314-6975-15k7fiq' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-6975-19w9hyn.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-6975-19w9hyn.jpeg[0]' -resize "100x100>" '/tmp/stream20110314-6975-19w9hyn20110314-6975-oryn58' 2>/dev/null
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'sharad') LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'sharad@gmaill.com') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mdescribe `users`[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('sharad', '', 'sharad@gmaill.com', '0ecdd956b439597070ab4b7b3ae2ecd764c91a02', 'b5853fbcb31d7f6f97933e7a459ea0632cfa38dc', '2011-03-14 12:09:56', '2011-03-14 12:09:56', NULL, NULL, 'car.jpeg', 'image/jpeg', 2328, '2011-03-14 12:09:56', NULL)
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/
+  [1m[36mSQL (48.4ms)[0m  [1mROLLBACK[0m
+Completed   in 457ms
+
+Errno::EACCES (Permission denied - (/tmp/stream20110314-6975-19w9hyn20110314-6975-15k7fiq, /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/stream20110314-6975-19w9hyn20110314-6975-15k7fiq)):
+  app/controllers/users_controller.rb:44:in `create'
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.5ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 17:40:01 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3002/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 17:40:01 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (3.9ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 51.1ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-03-14 17:40:10 +0530
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/login (18.8ms)
+Completed 200 OK in 121ms (Views: 22.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 17:40:32 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z9Yzf63at+1gDl1VXs+OOK2ScznkAw0nDbLksjYC/jg=", "userr"=>{"login"=>"hkjh", "email"=>"kedar.5pathak@pragtech.co.in", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x92dec28 @original_filename="car.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"car.jpeg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-6975-zqhiz5>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-6975-l64vi1.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-6975-l64vi1.jpeg[0]' -resize "300x300>" '/tmp/stream20110314-6975-l64vi120110314-6975-1r7xhsp' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-6975-l64vi1.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-6975-l64vi1.jpeg[0]' -resize "100x100>" '/tmp/stream20110314-6975-l64vi120110314-6975-1dkkzrp' 2>/dev/null
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'hkjh') LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'kedar.5pathak@pragtech.co.in') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mdescribe `users`[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('hkjh', '', 'kedar.5pathak@pragtech.co.in', 'a74caceea3ed1a42fda3615648e836d7e9cf90ef', 'ddf1c1a3d5bcc46d027cb50c24bd6b0ca6c63aaf', '2011-03-14 12:10:32', '2011-03-14 12:10:32', NULL, NULL, 'car.jpeg', 'image/jpeg', 2328, '2011-03-14 12:10:32', NULL)
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/
+  [1m[36mSQL (46.1ms)[0m  [1mROLLBACK[0m
+Completed   in 316ms
+
+Errno::EACCES (Permission denied - (/tmp/stream20110314-6975-l64vi1.jpeg, /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/stream20110314-6975-l64vi1.jpeg)):
+  app/controllers/users_controller.rb:44:in `create'
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.2ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/vendor/plugins/paperclip/rails/init.rb. (called from <top (required)> at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from join at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/initializers/koala.rb:2)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 17:41:17 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z9Yzf63at+1gDl1VXs+OOK2ScznkAw0nDbLksjYC/jg=", "userr"=>{"login"=>"hkjh", "email"=>"kedar.5pathak@pragtech.co.in", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xa765250 @original_filename="car.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"car.jpeg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-7020-1vrz0j5>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-7020-1hxd0i6.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-7020-1hxd0i6.jpeg[0]' -resize "300x300>" '/tmp/stream20110314-7020-1hxd0i620110314-7020-nd1wp2' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-7020-1hxd0i6.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-7020-1hxd0i6.jpeg[0]' -resize "100x100>" '/tmp/stream20110314-7020-1hxd0i620110314-7020-917snn' 2>/dev/null
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'hkjh') LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'kedar.5pathak@pragtech.co.in') LIMIT 1
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `users`[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('hkjh', '', 'kedar.5pathak@pragtech.co.in', '47af631cd2d537bb413ce47121b8b79d4b847fee', '7f10ab6c25a0b0d7944690d448c4f8b3cd25045d', '2011-03-14 12:11:18', '2011-03-14 12:11:18', NULL, NULL, 'car.jpeg', 'image/jpeg', 2328, '2011-03-14 12:11:18', NULL)
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/
+  [1m[36mSQL (56.2ms)[0m  [1mCOMMIT[0m
+Rendered notifier/send_welcome_registration.html.erb (0.7ms)
+
+Sent mail to kedar.5pathak@pragtech.co.in (6613ms)
+Return-Path: <pragtech.co.in>
+Date: Mon, 14 Mar 2011 17:41:20 +0530
+From: pragtech.co.in
+To: kedar.5pathak@pragtech.co.in
+Message-ID: <4d7e05e87f07e_1b6c4e1b708292b4@ptsadmin-desktop.mail>
+Subject: Send welcome registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+hello hkjh
+
+Thanks For Signing Up You Can Login And Use The Friendship Features Like Facebook.
+
+Please <a href="http://amenmobile.com:3000/login">Login </a>
+
+Redirected to http://localhost:3002/
+Completed 302 Found in 8530ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 17:41:27 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3002/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 17:41:27 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (3.6ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 59.1ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/vendor/plugins/paperclip/rails/init.rb. (called from <top (required)> at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from join at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/initializers/koala.rb:2)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 17:44:53 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 17:44:53 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (4.1ms)
+Completed 200 OK in 8ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-03-14 17:44:56 +0530
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/login (54.3ms)
+Completed 200 OK in 156ms (Views: 57.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 17:45:24 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z9Yzf63at+1gDl1VXs+OOK2ScznkAw0nDbLksjYC/jg=", "userr"=>{"login"=>"karan", "email"=>"karan@gmaill.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xaa101bc @original_filename="car.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"car.jpeg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-7268-134ckji>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-7268-ep42t5.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-7268-ep42t5.jpeg[0]' -resize "300x300>" '/tmp/stream20110314-7268-ep42t520110314-7268-1f2ry45' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-7268-ep42t5.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-7268-ep42t5.jpeg[0]' -resize "100x100>" '/tmp/stream20110314-7268-ep42t520110314-7268-fskcmm' 2>/dev/null
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'karan') LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'karan@gmaill.com') LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `users`[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('karan', '', 'karan@gmaill.com', '2d3360de79337f76e70b6b58b735fa49efbdbead', 'e96ae3cd7d57864338681b4d679f0dd6ae1c4902', '2011-03-14 12:15:24', '2011-03-14 12:15:24', NULL, NULL, 'car.jpeg', 'image/jpeg', 2328, '2011-03-14 12:15:24', NULL)
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/
+  [1m[36mSQL (52.2ms)[0m  [1mROLLBACK[0m
+Completed   in 399ms
+
+Errno::EACCES (Permission denied - (/tmp/stream20110314-7268-ep42t520110314-7268-1f2ry45, /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/stream20110314-7268-ep42t520110314-7268-1f2ry45)):
+  app/controllers/users_controller.rb:44:in `create'
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.6ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.5ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/vendor/plugins/paperclip/rails/init.rb. (called from <top (required)> at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from join at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/initializers/koala.rb:2)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 17:48:06 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 17:48:06 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (3.7ms)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-03-14 17:48:09 +0530
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/login (57.7ms)
+Completed 200 OK in 157ms (Views: 60.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 17:48:36 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z9Yzf63at+1gDl1VXs+OOK2ScznkAw0nDbLksjYC/jg=", "userr"=>{"login"=>"chandan", "email"=>"chandan@gmaill.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xa6c2dfc @original_filename="car.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"car.jpeg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-7351-hgw904>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-7351-unwq4g.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-7351-unwq4g.jpeg[0]' -resize "300x300>" '/tmp/stream20110314-7351-unwq4g20110314-7351-1jwwr4m' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-7351-unwq4g.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-7351-unwq4g.jpeg[0]' -resize "100x100>" '/tmp/stream20110314-7351-unwq4g20110314-7351-15rfcwn' 2>/dev/null
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'chandan') LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'chandan@gmaill.com') LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `users`[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('chandan', '', 'chandan@gmaill.com', '5fa8577cf5cfea3f14d0c4b73432f17075f55906', '0dff450f273b7a87ee1268c584353fd7dae7c401', '2011-03-14 12:18:37', '2011-03-14 12:18:37', NULL, NULL, 'car.jpeg', 'image/jpeg', 2328, '2011-03-14 12:18:36', NULL)
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/car.jpeg
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/car.jpeg
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/avatar/car.jpeg
+  [1m[36mSQL (59.6ms)[0m  [1mCOMMIT[0m
+Rendered notifier/send_welcome_registration.html.erb (0.6ms)
+
+Sent mail to chandan@gmaill.com (6274ms)
+Return-Path: <pragtech.co.in>
+Date: Mon, 14 Mar 2011 17:48:38 +0530
+From: pragtech.co.in
+To: chandan@gmaill.com
+Message-ID: <4d7e079eacf6b_1cb74ce19642835a@ptsadmin-desktop.mail>
+Subject: Send welcome registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+hello chandan
+
+Thanks For Signing Up You Can Login And Use The Friendship Features Like Facebook.
+
+Please <a href="http://amenmobile.com:3000/login">Login </a>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 8126ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 17:48:44 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 17:48:45 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (3.4ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 62.2ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2011-03-14 17:48:54 +0530
+  Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z9Yzf63at+1gDl1VXs+OOK2ScznkAw0nDbLksjYC/jg=", "login"=>"chandan", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`login` = 'chandan') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 80ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 17:48:54 +0530
+  Processing by UsersController#user_action as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 12) LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.friend_id WHERE ((`friendships`.user_id = 12) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.user_id WHERE ((`friendships`.friend_id = 12) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))[0m
+  [1m[35mPrayer Load (0.4ms)[0m  SELECT `prayers`.* FROM `prayers` WHERE (user_id in (12)) ORDER BY id desc
+Rendered users/user_action.html.erb within layouts/login (6.9ms)
+Completed 200 OK in 164ms (Views: 19.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users/my_profile" for 127.0.0.1 at 2011-03-14 17:48:57 +0530
+  Processing by UsersController#my_profile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 12) LIMIT 1[0m
+Rendered users/my_profile.html.erb within layouts/login (126.0ms)
+Completed 200 OK in 130ms (Views: 129.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/system/avatars/12/thumb/car.jpeg?1300105116" for 127.0.0.1 at 2011-03-14 17:48:57 +0530
+
+ActionController::RoutingError (No route matches "/system/avatars/12/thumb/car.jpeg"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/system/avatars/12/thumb/car.jpeg?1300105116" for 127.0.0.1 at 2011-03-14 17:48:58 +0530
+
+ActionController::RoutingError (No route matches "/system/avatars/12/thumb/car.jpeg"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/system/avatars/12/thumb/car.jpeg?1300105116" for 127.0.0.1 at 2011-03-14 17:49:13 +0530
+
+ActionController::RoutingError (No route matches "/system/avatars/12/thumb/car.jpeg"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:00:48 +0530
+  Processing by UsersController#user_action as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 12) LIMIT 1
+Completed   in 64ms
+
+NoMethodError (undefined method `value' for "":String):
+  lib/authenticated_system.rb:125:in `login_from_cookie'
+  lib/authenticated_system.rb:12:in `current_user'
+  lib/authenticated_system.rb:6:in `logged_in?'
+  app/controllers/users_controller.rb:7:in `check_the_login'
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (48.0ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (53.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:00:55 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 18:00:55 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (3.4ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-03-14 18:00:59 +0530
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/login (17.1ms)
+Completed 200 OK in 127ms (Views: 20.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 18:01:35 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VchKkVI3cwWcOdjgT6b5TuANvlVHcnY8js3tFhBmZ0Q=", "userr"=>{"login"=>"chandan", "email"=>"chandan@gmaill.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xa416aa4 @original_filename="car.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"car.jpeg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-7351-iea1q3>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-7351-19nz090.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-7351-19nz090.jpeg[0]' -resize "300x300>" '/tmp/stream20110314-7351-19nz09020110314-7351-16vc2uo' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-7351-19nz090.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-7351-19nz090.jpeg[0]' -resize "100x100>" '/tmp/stream20110314-7351-19nz09020110314-7351-1q4dw16' 2>/dev/null
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'chandan') LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'chandan@gmaill.com') LIMIT 1[0m
+  [1m[35mSQL (2.7ms)[0m  describe `users`
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('chandan', '', 'chandan@gmaill.com', 'df636e88584cd950ebc9ea36d46a21580caa051d', '035178de2f0b4aad6fc7dbce6d23416fc3b83fe8', '2011-03-14 12:31:35', '2011-03-14 12:31:35', NULL, NULL, 'car.jpeg', 'image/jpeg', 2328, '2011-03-14 12:31:35', NULL)[0m
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/public/system/avatars/13/original/car.jpeg
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/public/system/avatars/13/medium/car.jpeg
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/public/system/avatars/13/thumb/car.jpeg
+  [1m[35mSQL (54.9ms)[0m  COMMIT
+Rendered notifier/send_welcome_registration.html.erb (0.6ms)
+
+Sent mail to chandan@gmaill.com (5986ms)
+Return-Path: <pragtech.co.in>
+Date: Mon, 14 Mar 2011 18:01:35 +0530
+From: pragtech.co.in
+To: chandan@gmaill.com
+Message-ID: <4d7e0aa77a015_1cb7538778c284e2@ptsadmin-desktop.mail>
+Subject: Send welcome registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+hello chandan
+
+Thanks For Signing Up You Can Login And Use The Friendship Features Like Facebook.
+
+Please <a href="http://amenmobile.com:3000/login">Login </a>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 6380ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:01:41 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 18:01:41 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (3.5ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 59.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:06:04 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 18:06:04 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (3.3ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-03-14 18:06:08 +0530
+  Processing by UsersController#new as HTML
+Completed   in 8ms
+
+SyntaxError (/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/app/models/user.rb:11: syntax error, unexpected ':', expecting keyword_end
+...300>", :thumb => "100x100>" } :url => "/images/:class/:attac...
+...                               ^
+/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/app/models/user.rb:11: syntax error, unexpected ',', expecting keyword_end
+...d/:style/:basename.:extension",:path => ":rails_root/public/...
+...                               ^):
+  app/controllers/users_controller.rb:38:in `new'
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.4ms)
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-03-14 18:06:20 +0530
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/login (16.0ms)
+Completed 200 OK in 117ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 18:06:39 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VchKkVI3cwWcOdjgT6b5TuANvlVHcnY8js3tFhBmZ0Q=", "userr"=>{"login"=>"karan", "email"=>"karan@gmaill.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xa61b8e0 @original_filename="car.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"car.jpeg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-7351-1wmzy83>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-7351-1h6ee1m.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-7351-1h6ee1m.jpeg[0]' -resize "300x300>" '/tmp/stream20110314-7351-1h6ee1m20110314-7351-1yopjh6' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-7351-1h6ee1m.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-7351-1h6ee1m.jpeg[0]' -resize "100x100>" '/tmp/stream20110314-7351-1h6ee1m20110314-7351-1whekb5' 2>/dev/null
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'karan') LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'karan@gmaill.com') LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  describe `users`
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('karan', '', 'karan@gmaill.com', 'b2ab5eeca416030833de245c11e145046fe9c041', 'abb6fe3b94ea753b359af40ae03781a9d7dfc456', '2011-03-14 12:36:39', '2011-03-14 12:36:39', NULL, NULL, 'car.jpeg', 'image/jpeg', 2328, '2011-03-14 12:36:39', NULL)[0m
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/public/images/users/avatars/14/original/car.jpeg
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/public/images/users/avatars/14/medium/car.jpeg
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/public/images/users/avatars/14/thumb/car.jpeg
+  [1m[35mSQL (61.3ms)[0m  COMMIT
+Rendered notifier/send_welcome_registration.html.erb (0.6ms)
+
+Sent mail to karan@gmaill.com (6116ms)
+Return-Path: <pragtech.co.in>
+Date: Mon, 14 Mar 2011 18:06:40 +0530
+From: pragtech.co.in
+To: karan@gmaill.com
+Message-ID: <4d7e0bd81b0e1_1cb75434bbc285d5@ptsadmin-desktop.mail>
+Subject: Send welcome registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+hello karan
+
+Thanks For Signing Up You Can Login And Use The Friendship Features Like Facebook.
+
+Please <a href="http://amenmobile.com:3000/login">Login </a>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 6514ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:06:46 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 18:06:46 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (3.6ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 64.1ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2011-03-14 18:06:53 +0530
+  Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VchKkVI3cwWcOdjgT6b5TuANvlVHcnY8js3tFhBmZ0Q=", "login"=>"karan", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`login` = 'karan') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+[paperclip] Saving attachments.
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 78ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:06:53 +0530
+  Processing by UsersController#user_action as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 14) LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.friend_id WHERE ((`friendships`.user_id = 14) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.user_id WHERE ((`friendships`.friend_id = 14) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))
+  [1m[36mPrayer Load (0.4ms)[0m  [1mSELECT `prayers`.* FROM `prayers` WHERE (user_id in (14)) ORDER BY id desc[0m
+Rendered users/user_action.html.erb within layouts/login (6.0ms)
+Completed 200 OK in 173ms (Views: 9.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/my_profile" for 127.0.0.1 at 2011-03-14 18:06:55 +0530
+  Processing by UsersController#my_profile as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 14) LIMIT 1
+Rendered users/my_profile.html.erb within layouts/login (134.9ms)
+Completed 200 OK in 139ms (Views: 137.9ms | ActiveRecord: 0.2ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/vendor/plugins/paperclip/rails/init.rb. (called from <top (required)> at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from join at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/initializers/koala.rb:2)
+
+
+Started GET "/logout" for 127.0.0.1 at 2011-03-14 18:11:55 +0530
+  Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 139ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 18:11:55 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (4.3ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-03-14 18:11:58 +0530
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/login (24.1ms)
+Completed 200 OK in 129ms (Views: 27.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 18:12:27 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KCEyvAP7ZN4bQ9JAsnJFG7lGXuYr4jWGQ9TrrQFyo3g=", "userr"=>{"login"=>"vir", "email"=>"vir@gmaill.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xb15a760 @original_filename="car.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"car.jpeg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-7926-xf82kl>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-7926-1i7z5wx.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-7926-1i7z5wx.jpeg[0]' -resize "300x300>" '/tmp/stream20110314-7926-1i7z5wx20110314-7926-13eq0t4' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-7926-1i7z5wx.jpeg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-7926-1i7z5wx.jpeg[0]' -resize "100x100>" '/tmp/stream20110314-7926-1i7z5wx20110314-7926-1mq5pbh' 2>/dev/null
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'vir') LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'vir@gmaill.com') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mdescribe `users`[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('vir', '', 'vir@gmaill.com', 'f93717e2568d587c2efa7a758e922063f9b0dfdb', 'd6e4afbbe61fac36d52203313303343338568755', '2011-03-14 12:42:28', '2011-03-14 12:42:28', NULL, NULL, 'car.jpeg', 'image/jpeg', 2328, '2011-03-14 12:42:28', NULL)
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/public/config/users/avatars/15/original/car.jpeg
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/public/config/users/avatars/15/medium/car.jpeg
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/public/config/users/avatars/15/thumb/car.jpeg
+  [1m[36mSQL (54.1ms)[0m  [1mCOMMIT[0m
+Rendered notifier/send_welcome_registration.html.erb (0.5ms)
+
+Sent mail to vir@gmaill.com (5896ms)
+Return-Path: <pragtech.co.in>
+Date: Mon, 14 Mar 2011 18:12:29 +0530
+From: pragtech.co.in
+To: vir@gmaill.com
+Message-ID: <4d7e0d35ccb50_1ef653a2dde86954@ptsadmin-desktop.mail>
+Subject: Send welcome registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+hello vir
+
+Thanks For Signing Up You Can Login And Use The Friendship Features Like Facebook.
+
+Please <a href="http://amenmobile.com:3000/login">Login </a>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 7779ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:12:35 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 18:12:35 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (3.6ms)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 56.8ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2011-03-14 18:12:45 +0530
+  Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KCEyvAP7ZN4bQ9JAsnJFG7lGXuYr4jWGQ9TrrQFyo3g=", "login"=>"vir", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`login` = 'vir') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 127ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:12:45 +0530
+  Processing by UsersController#user_action as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 15) LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.friend_id WHERE ((`friendships`.user_id = 15) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.user_id WHERE ((`friendships`.friend_id = 15) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))[0m
+  [1m[35mPrayer Load (0.6ms)[0m  SELECT `prayers`.* FROM `prayers` WHERE (user_id in (15)) ORDER BY id desc
+Rendered users/user_action.html.erb within layouts/login (6.2ms)
+Completed 200 OK in 180ms (Views: 10.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users/my_profile" for 127.0.0.1 at 2011-03-14 18:12:47 +0530
+  Processing by UsersController#my_profile as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 15) LIMIT 1[0m
+Rendered users/my_profile.html.erb within layouts/login (124.8ms)
+Completed 200 OK in 129ms (Views: 128.7ms | ActiveRecord: 0.1ms)
