@@ -60,7 +60,11 @@ FB.login(function(response) {
              <div id="form_div" style="padding-left:35%"> 
                   <h1><%=@user.login%> Profile</h1>
            
-      <label for="name" class="form_label">Profile Image:-    <%= image_tag @user.avatar.url(:thumb) %></label>
+      <label for="name" class="form_label">Profile Image:-    
+      <%#= image_tag @user.avatar.url(:thumb) %>
+       <%= image_tag("/users/code_image/#{@user.id}", :alt => "Image",:size=>"50x50") %>
+      
+      </label>
         <br/>
       <label for="name" class="form_label">Profile Name:-    <%= @user.login %></label>
 <br/>

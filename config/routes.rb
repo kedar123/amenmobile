@@ -16,6 +16,8 @@ Friendap::Application.routes.draw do
   resources :facebooktests
   match '/join_the_network/:id' => 'friend_requests#join_the_network'
 
+  match '/users/code_image/:id' => 'users#code_image'
+
   match '/users/show_profile/:id' => 'users#show_profile'
 
   match '/reset/:reset_code' => 'users#reset'

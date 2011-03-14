@@ -7,7 +7,10 @@
           <label class="prayer_labelp">my Image</label>
           </div>
           <div id="middle_div_profile_image" >
-          <label class="prayer_labelp"><%= image_tag current_user.avatar.url(:thumb) %></label>
+          <label class="prayer_labelp">
+              <%#= image_tag current_user.avatar.url(:thumb) %>
+               <%= image_tag("/users/code_image/#{current_user.id}", :alt => "Image",:size=>"100x100") %>
+              </label>
           </div>
 <div id="middle_div_profile_content">
           <label class="prayer_labelp">my Email</label>

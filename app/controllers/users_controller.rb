@@ -15,6 +15,14 @@ class UsersController < ApplicationController
     
   end    
  
+  def code_image 
+  @image_data = User.find(params[:id])
+  @image = @image_data.binary_data
+  send_data(@image,:type => @image_data.content_type ,:filename => @image_data.filename , :disposition => 'inline')
+  end
+ 
+ 
+ 
   def edit_profile
    
     render :layout=> 'editprofile'
@@ -22,6 +30,8 @@ class UsersController < ApplicationController
 
   def update_profile
     current_user.update_attributes(params[:user])
+    current_user.image_file = params[:user][:image_file]
+    current_user.save
       if !current_user.errors.full_messages.blank?
        flash[:notice] = "Please Enter Correct Information To Update "
        #redirect_to :controller=>'users' ,:action=>'edit_profile',:error=>current_user.errors.full_messages
@@ -41,8 +51,8 @@ class UsersController < ApplicationController
   def create
     logout_keeping_session!
     @user = User.new(params[:userr])
-    success = @user && @user.save
-    
+    @user.image_file = params[:userr][:image_file]
+    success = @user && @user.save 
     if success && @user.errors.empty?
        notice = "Logged in Successfully"
       # Protects against session fixation attacks, causes request forgery
