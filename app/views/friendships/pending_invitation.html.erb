@@ -1,0 +1,29 @@
+
+    <div id="middle_div"> 
+      <p style="padding-left:20%;padding-top:2%">  <label class="prayer_label">Following Are The Invitation Pending For <%=current_user.login%></label></p>
+       <div id="friend_list">
+            Invitation Pending List
+                   <% for pending_invited in @pending_invited_by%>  
+                          
+ <div >
+                                       <%if pending_invited.avatar_file_name.blank?%>   
+                                          <img src="/images/blank.jpeg"></img>
+                                        <%else%>
+                                                  <%= image_tag pending_invited.avatar.url(:thumb),:size=>"50x50",:style=>"float:left;padding:5px;" %>
+                                        <%end%>  
+
+                                 <%= link_to pending_invited.login ,  :controller=>'friendships' ,:action=>'accept_invitation',:id=>pending_invited.id%>
+                                    </div>
+                        <%end%>  
+  
+    
+       </div>
+       
+    </div>
+    
+
+
+
+
+
+

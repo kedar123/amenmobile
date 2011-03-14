@@ -1,0 +1,164 @@
+class UsersController < ApplicationController
+  layout 'login' 
+  # Be sure to include AuthenticationSystem in Application Controller instead
+  before_filter :check_the_login,:only=>:user_action
+  
+   def check_the_login
+      if logged_in?
+      else 
+        flash[:notice] = "Please Login"
+         redirect_to "/login"
+      end  
+   end  
+
+  def my_profile
+    
+  end    
+ 
+  def edit_profile
+   
+    render :layout=> 'editprofile'
+  end  
+
+  def update_profile
+    current_user.update_attributes(params[:user])
+      if !current_user.errors.full_messages.blank?
+       flash[:notice] = "Please Enter Correct Information To Update "
+       #redirect_to :controller=>'users' ,:action=>'edit_profile',:error=>current_user.errors.full_messages
+       render :action=>"edit_profile",:layout=>'editprofile'
+      else 
+       flash[:notice] = "Your Changes Has Been Updated"
+       redirect_to "/users/edit_profile"
+      end
+
+  end   
+
+  # render new.rhtml
+  def new
+    @user = User.new
+  end
+ 
+  def create
+    logout_keeping_session!
+    @user = User.new(params[:userr])
+    success = @user && @user.save
+    
+    if success && @user.errors.empty?
+       notice = "Logged in Successfully"
+      # Protects against session fixation attacks, causes request forgery
+      # protection if visitor resubmits an earlier form using back
+      # button. Uncomment if you understand the tradeoffs.
+      # reset session
+      #here i need to send email to the registered user
+      
+      Notifier.send_welcome_registration(@user).deliver
+      
+      if !session[:friendid].blank?
+       tempuser = User.find(session[:friendid])
+        session[:friendid] = nil
+        self.current_user = @user # !! now logged in
+        tempuser.invite current_user
+        notice = "Logged in Successfully Please Accept The Invitation Of Your Friend By Clicking On   Invitation Pending" 
+      end
+      
+      flash[:notice]=notice
+      redirect_back_or_default('/')
+    else
+      flash.now[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
+
+      render :action => 'new'
+    end
+  end
+
+  def user_action
+#       @facebook_cookies["access_token"]
+#        @graph = Koala::Facebook::GraphAPI.new(@facebook_cookies["access_token"])
+#	      @friends = @graph.get_connections("me", "friends")
+#        p @friends[0]
+      total_friend_user = current_user.friends
+      total_friend_ids = []
+      total_friend_user.each {|frid|  total_friend_ids << frid.id  }      
+      total_friend_ids << current_user.id
+      @uprayer=[]
+      @uprayer = Prayer.find(:all,:conditions=>"user_id in (#{total_friend_ids.join(',')})",:order =>"id desc")
+      @usercomments = []
+      @uprayer.each {|epry|  @usercomments << epry.comments }
+      @usercomments.each do |totalusc|
+            for usc  in totalusc
+                 if total_friend_ids.index(usc.user_id)
+                 else  
+                    totalusc.delete(usc)
+                 end           
+             end      
+      end  
+  end  
+  
+   def koalatest
+      @graph = Koala::Facebook::GraphAPI.new(@facebook_cookies["access_token"])
+    
+   end  
+
+  def forgot
+    if request.post?
+      user = User.find_by_email(params[:user][:email])
+      if user
+        user.create_reset_code
+        Notifier.send_reset_code(user).deliver
+        flash[:notice] = "Reset code sent to #{user.email}"
+      else
+        flash[:notice] = "#{params[:user][:email]} does not exist in system"
+      end
+      redirect_to  :back
+    end
+  end
+
+   def reset
+    flash[:notice]=nil if flash[:notice]
+    @user = User.find_by_reset_code(params[:reset_code]) unless params[:reset_code].nil?
+
+    if @user.blank?  
+        flash[:notice] = "Your Reset Code Has Been Expire Please Send Request Again"
+     
+        redirect_to "/users/forgot"  
+    else 
+
+        if request.post?
+          if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
+                 p "stille iiiiiiiiiiii"
+                  flash[:notice]="Please Enter Password"  
+                  render :action=>"reset"
+          else
+              p "still im in else"
+                if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
+                  self.current_user = @user
+                  @user.delete_reset_code
+                  flash[:notice] = "Password reset successfully for #{@user.email}"
+                  redirect_back_or_default('/')
+                else
+                  flash[:notice]="Please Enter Correct Password"  
+                  render :action=>"reset"
+                end
+         end
+        
+        end
+  end  
+  end
+
+  def show_profile
+    @user = User.find(params[:id]);
+  end  
+
+
+  def usertestxml
+     @user = User.find(:all)
+      respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @user }
+      format.json  { render :json => @user }
+
+    end
+  end  
+
+
+
+end

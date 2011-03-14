@@ -1,0 +1,75 @@
+<script>
+function make_facebook_login(){
+
+ FB.init({
+ appId  : '<%= Facebook::APP_ID %>',
+ status : true, // check login status
+ cookie : true, // enable cookies to allow the server to access the session
+ xfbml  : true  // parse XFBML
+ });
+
+
+
+FB.login(function(response) {
+  if (response.session) {
+    if (response.perms) {
+      // user is logged in and granted some permissions.
+      // perms is a comma separated list of granted permissions
+      location.href = '/homes'
+    } else {
+      // user is logged in, but did not grant any permissions
+    }
+  } else {
+    // user is not logged in
+  }
+}, {perms:"read_stream,publish_stream,offline_access,email"});
+
+}
+
+</script>
+
+
+
+
+
+
+
+
+  <div id="upper_div">
+       <div id="flash"> <%=flash[:notice]%> </div>
+        <ul id="aux-nav">
+          	<li >Welcome <%=current_user.login%></li>
+        	  <li><a title="Contact Us" href="/logout">Sign Out</a></li>
+        </ul>
+          <div id="fb_image_div">
+                   <div id="fb-root"></div>
+                   <a href="#" onclick="make_facebook_login();">
+                <img src="/images/fb_login.gif">
+                </img>
+              </a>
+          </div>
+          
+          <ul id="common_list">
+             	<li ><%=link_to "Home",:controller=>"users",:action=>"user_action"%></li>
+            	<li ><%=link_to "My Friend",:controller=>"friendships",:action=>"get_all_friend"%></li>
+            	<li ><%=link_to "Invitation Pending",:controller=>"friendships",:action=>"pending_invitation"%></li>
+            	<li ><%=link_to "My Profile",:controller=>"users",:action=>"my_profile"%></li>
+            	<li ><%=link_to "Send Invitation",:controller=>"friend_requests",:action=>"send_friend_request"%></li>    </ul>
+  </div>
+  <div id="middle_div"> 
+             <div id="form_div" style="padding-left:35%"> 
+                  <h1><%=@user.login%> Profile</h1>
+           
+      <label for="name" class="form_label">Profile Image:-    <%= image_tag @user.avatar.url(:thumb) %></label>
+        <br/>
+      <label for="name" class="form_label">Profile Name:-    <%= @user.login %></label>
+<br/>
+      <label for="name" class="form_label">Profile Email:-    <%= @user.email %></label>
+<br/>
+          </div>         
+  </div> 
+
+
+
+<div id="footer" >
+</div>
