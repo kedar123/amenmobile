@@ -7,10 +7,12 @@
                            <br/>
                         <p class="fcomment"> 
                                    <div >
-                                       <%if getallfriend.avatar_file_name.blank?%>   
+                                       <%if getallfriend.binary_data.blank?%>   
                                           <img src="/images/blank.jpeg"></img>
                                         <%else%>
-                                                  <%= image_tag getallfriend.avatar.url(:thumb),:size=>"50x50",:style=>"float:left;padding:5px;" %>
+            <%= image_tag "/users/code_image/#{getallfriend.id}",:size=>"50x50",:style=>"float:left;padding:5px;" %>
+       
+                                                  
                                         <%end%>  
 
                                    <a href="/users/show_profile/<%=getallfriend.id%>"><%=getallfriend.login%></a>
