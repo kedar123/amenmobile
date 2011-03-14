@@ -6,7 +6,7 @@
                    <% for pending_invited in @pending_invited_by%>  
                           
  <div >
-                                       <%if pending_invited.avatar_file_name.blank?%>   
+                                       <%if pending_invited.binary_data.blank?%>   
                                           <img src="/images/blank.jpeg"></img>
                                         <%else%>
         <%= image_tag "/users/code_image/#{pending_invited.id}",:size=>"50x50",:style=>"float:left;padding:5px;" %>
