@@ -1571,3 +1571,555 @@ Started GET "/login" for 127.0.0.1 at 2011-03-14 18:38:23 +0530
   Processing by SessionsController#new as HTML
 Rendered sessions/new.html.erb within layouts/login (3.5ms)
 Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/vendor/plugins/paperclip/rails/init.rb. (called from <top (required)> at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from join at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/initializers/koala.rb:2)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:45:54 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 18:45:54 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (4.2ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-03-14 18:45:56 +0530
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/login (54.9ms)
+Completed 200 OK in 156ms (Views: 58.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 18:46:23 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ip3UE/mvhFHDAeQOeOqhs16n7tqSgvm+G/DJ8aQE+8k=", "userr"=>{"login"=>"yes", "email"=>"yes@gmaill.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x9d0b6ec @original_filename="accounting.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"accounting.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-8943-1w3rkb9>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-8943-1ogk29b.png[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-8943-1ogk29b.png[0]' -resize "300x300>" '/tmp/stream20110314-8943-1ogk29b20110314-8943-wdplug' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-8943-1ogk29b.png[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-8943-1ogk29b.png[0]' -resize "100x100>" '/tmp/stream20110314-8943-1ogk29b20110314-8943-p34iy0' 2>/dev/null
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'yes') LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'yes@gmaill.com') LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `users`[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('yes', '', 'yes@gmaill.com', 'eddc7282ad66d3b1a02172afc1dceb893ec2042f', '67066d3de42364eec60454d613f8cc4aa55043f8', '2011-03-14 13:16:24', '2011-03-14 13:16:24', NULL, NULL, 'accounting.png', 'image/png', 1960, '2011-03-14 13:16:23', NULL)
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/public/images/19/original/accounting.png
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/public/images/19/medium/accounting.png
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/public/images/19/thumb/accounting.png
+  [1m[36mSQL (44.1ms)[0m  [1mCOMMIT[0m
+Rendered notifier/send_welcome_registration.html.erb (0.6ms)
+
+Sent mail to yes@gmaill.com (6387ms)
+Return-Path: <pragtech.co.in>
+Date: Mon, 14 Mar 2011 18:46:25 +0530
+From: pragtech.co.in
+To: yes@gmaill.com
+Message-ID: <4d7e1529af1b8_22ef48063221034f@ptsadmin-desktop.mail>
+Subject: Send welcome registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+hello yes
+
+Thanks For Signing Up You Can Login And Use The Friendship Features Like Facebook.
+
+Please <a href="http://amenmobile.com:3000/login">Login </a>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 8367ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:46:32 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 18:46:32 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (4.2ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 47.3ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/vendor/plugins/paperclip/rails/init.rb. (called from <top (required)> at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from join at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/initializers/koala.rb:2)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-03-14 18:50:07 +0530
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/login (21.9ms)
+Completed 200 OK in 166ms (Views: 26.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 18:50:36 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ip3UE/mvhFHDAeQOeOqhs16n7tqSgvm+G/DJ8aQE+8k=", "userr"=>{"login"=>"surya", "email"=>"surya@asd.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xb689420 @original_filename="accounting.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"accounting.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-9148-1innhlp>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-9148-14cyw4.png[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-9148-14cyw4.png[0]' -resize "300x300>" '/tmp/stream20110314-9148-14cyw420110314-9148-164sbat' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-9148-14cyw4.png[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-9148-14cyw4.png[0]' -resize "100x100>" '/tmp/stream20110314-9148-14cyw420110314-9148-xn20hc' 2>/dev/null
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'surya') LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'surya@asd.com') LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `users`[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('surya', '', 'surya@asd.com', '04fda2b898c3939aa48d55d1e3fb54bb673c904d', '084de16068b1d8c69c6234245e6d61ea7c122e61', '2011-03-14 13:20:36', '2011-03-14 13:20:36', NULL, NULL, 'accounting.png', 'image/png', 1960, '2011-03-14 13:20:36', NULL)
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/original/accounting.png
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/medium/accounting.png
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/accounting.png
+  [1m[36mSQL (45.2ms)[0m  [1mCOMMIT[0m
+Rendered notifier/send_welcome_registration.html.erb (0.7ms)
+
+Sent mail to surya@asd.com (5628ms)
+Return-Path: <pragtech.co.in>
+Date: Mon, 14 Mar 2011 18:50:38 +0530
+From: pragtech.co.in
+To: surya@asd.com
+Message-ID: <4d7e1626be86_23bc5621d30124dc@ptsadmin-desktop.mail>
+Subject: Send welcome registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+hello surya
+
+Thanks For Signing Up You Can Login And Use The Friendship Features Like Facebook.
+
+Please <a href="http://amenmobile.com:3000/login">Login </a>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 7575ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:50:43 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 18:50:43 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (4.3ms)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 47.8ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2011-03-14 18:50:58 +0530
+  Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ip3UE/mvhFHDAeQOeOqhs16n7tqSgvm+G/DJ8aQE+8k=", "login"=>"surya", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`login` = 'surya') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 126ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:50:58 +0530
+  Processing by UsersController#user_action as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 20) LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.friend_id WHERE ((`friendships`.user_id = 20) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.user_id WHERE ((`friendships`.friend_id = 20) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))[0m
+  [1m[35mPrayer Load (0.4ms)[0m  SELECT `prayers`.* FROM `prayers` WHERE (user_id in (20)) ORDER BY id desc
+Rendered users/user_action.html.erb within layouts/login (5.3ms)
+Completed 200 OK in 170ms (Views: 8.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users/my_profile" for 127.0.0.1 at 2011-03-14 18:51:00 +0530
+  Processing by UsersController#my_profile as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 20) LIMIT 1[0m
+Rendered users/my_profile.html.erb within layouts/login (131.2ms)
+Completed 200 OK in 135ms (Views: 134.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/images/20accounting.png" for 127.0.0.1 at 2011-03-14 18:51:00 +0530
+
+ActionController::RoutingError (No route matches "/images/20accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/images/20accounting.png" for 127.0.0.1 at 2011-03-14 18:51:00 +0530
+
+ActionController::RoutingError (No route matches "/images/20accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/users/my_profile" for 127.0.0.1 at 2011-03-14 18:51:22 +0530
+  Processing by UsersController#my_profile as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 20) LIMIT 1
+Rendered users/my_profile.html.erb within layouts/login (154.6ms)
+Completed 200 OK in 159ms (Views: 158.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/accounting.png?1300108836" for 127.0.0.1 at 2011-03-14 18:51:22 +0530
+
+ActionController::RoutingError (No route matches "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/accounting.png?1300108836" for 127.0.0.1 at 2011-03-14 18:51:23 +0530
+
+ActionController::RoutingError (No route matches "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/accounting.png?1300108836" for 127.0.0.1 at 2011-03-14 18:51:24 +0530
+
+ActionController::RoutingError (No route matches "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/users/my_profile" for 127.0.0.1 at 2011-03-14 18:53:01 +0530
+  Processing by UsersController#my_profile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 20) LIMIT 1[0m
+Rendered users/my_profile.html.erb within layouts/login (129.3ms)
+Completed 200 OK in 133ms (Views: 132.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/.avatar.url(:thumb)" for 127.0.0.1 at 2011-03-14 18:53:01 +0530
+
+ActionController::RoutingError (No route matches "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/.avatar.url(:thumb)"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/.avatar.url(:thumb)" for 127.0.0.1 at 2011-03-14 18:53:01 +0530
+
+ActionController::RoutingError (No route matches "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/.avatar.url(:thumb)"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+
+
+Started GET "/users/my_profile" for 127.0.0.1 at 2011-03-14 18:53:43 +0530
+  Processing by UsersController#my_profile as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 20) LIMIT 1
+Rendered users/my_profile.html.erb within layouts/login (80.4ms)
+Completed 200 OK in 84ms (Views: 83.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/accounting.png" for 127.0.0.1 at 2011-03-14 18:53:43 +0530
+
+ActionController::RoutingError (No route matches "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/accounting.png" for 127.0.0.1 at 2011-03-14 18:53:43 +0530
+
+ActionController::RoutingError (No route matches "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/accounting.png" for 127.0.0.1 at 2011-03-14 18:53:46 +0530
+
+ActionController::RoutingError (No route matches "/home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/20/thumb/accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/users/my_profile" for 127.0.0.1 at 2011-03-14 18:54:49 +0530
+  Processing by UsersController#my_profile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 20) LIMIT 1[0m
+Rendered users/my_profile.html.erb within layouts/login (109.5ms)
+Completed 200 OK in 115ms (Views: 113.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tmp/system/avatars/20/thumb/accounting.png" for 127.0.0.1 at 2011-03-14 18:54:49 +0530
+
+ActionController::RoutingError (No route matches "/tmp/system/avatars/20/thumb/accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.9ms)
+
+
+Started GET "/tmp/system/avatars/20/thumb/accounting.png" for 127.0.0.1 at 2011-03-14 18:54:49 +0530
+
+ActionController::RoutingError (No route matches "/tmp/system/avatars/20/thumb/accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/tmp/system/avatars/20/thumb/accounting.png" for 127.0.0.1 at 2011-03-14 18:54:54 +0530
+
+ActionController::RoutingError (No route matches "/tmp/system/avatars/20/thumb/accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/users/my_profile" for 127.0.0.1 at 2011-03-14 18:56:08 +0530
+  Processing by UsersController#my_profile as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 20) LIMIT 1
+Rendered users/my_profile.html.erb within layouts/login (80.9ms)
+Completed 200 OK in 85ms (Views: 84.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/system/avatars/20/thumb/accounting.png?1300108836" for 127.0.0.1 at 2011-03-14 18:56:08 +0530
+
+ActionController::RoutingError (No route matches "/system/avatars/20/thumb/accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/system/avatars/20/thumb/accounting.png?1300108836" for 127.0.0.1 at 2011-03-14 18:56:08 +0530
+
+ActionController::RoutingError (No route matches "/system/avatars/20/thumb/accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+
+
+Started GET "/system/avatars/20/thumb/accounting.png?1300108836" for 127.0.0.1 at 2011-03-14 18:56:11 +0530
+
+ActionController::RoutingError (No route matches "/system/avatars/20/thumb/accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2011-03-14 18:56:30 +0530
+  Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 57ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 18:56:30 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (3.8ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-03-14 18:56:32 +0530
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/login (71.0ms)
+Completed 200 OK in 148ms (Views: 74.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 18:56:53 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fddy/a0oTs6+Sg9fYOVV4ugx8fpyYYogNGo6WvqQvx4=", "userr"=>{"login"=>"ret", "email"=>"ret@gmaill.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xba53a4c @original_filename="black1.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"black1.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-9148-mfttzf>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-9148-13qgux3.jpg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-9148-13qgux3.jpg[0]' -resize "300x300>" '/tmp/stream20110314-9148-13qgux320110314-9148-arogwv' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-9148-13qgux3.jpg[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-9148-13qgux3.jpg[0]' -resize "100x100>" '/tmp/stream20110314-9148-13qgux320110314-9148-q1ifkl' 2>/dev/null
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'ret') LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'ret@gmaill.com') LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  describe `users`
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('ret', '', 'ret@gmaill.com', '245bb92072c9e75efb9e677781dfa39c83b8fc59', 'f159bb43df8ea11e4d637a5a61b4bc40e240e9d1', '2011-03-14 13:26:54', '2011-03-14 13:26:54', NULL, NULL, 'black1.jpg', 'image/jpeg', 711, '2011-03-14 13:26:54', NULL)[0m
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/21/original/black1.jpg
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/21/medium/black1.jpg
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/tmp/system/avatars/21/thumb/black1.jpg
+  [1m[35mSQL (41.9ms)[0m  COMMIT
+Rendered notifier/send_welcome_registration.html.erb (0.9ms)
+
+Sent mail to ret@gmaill.com (6060ms)
+Return-Path: <pragtech.co.in>
+Date: Mon, 14 Mar 2011 18:56:54 +0530
+From: pragtech.co.in
+To: ret@gmaill.com
+Message-ID: <4d7e179e570b3_23bc57b49a4125db@ptsadmin-desktop.mail>
+Subject: Send welcome registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+hello ret
+
+Thanks For Signing Up You Can Login And Use The Friendship Features Like Facebook.
+
+Please <a href="http://amenmobile.com:3000/login">Login </a>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 6457ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:57:00 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 18:57:00 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (3.7ms)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 44.6ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2011-03-14 18:57:27 +0530
+  Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fddy/a0oTs6+Sg9fYOVV4ugx8fpyYYogNGo6WvqQvx4=", "login"=>"ret", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`login` = 'ret') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  BEGIN
+[paperclip] Saving attachments.
+  [1m[36mSQL (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 99ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:57:27 +0530
+  Processing by UsersController#user_action as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 21) LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.friend_id WHERE ((`friendships`.user_id = 21) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.user_id WHERE ((`friendships`.friend_id = 21) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))
+  [1m[36mPrayer Load (0.4ms)[0m  [1mSELECT `prayers`.* FROM `prayers` WHERE (user_id in (21)) ORDER BY id desc[0m
+Rendered users/user_action.html.erb within layouts/login (51.6ms)
+Completed 200 OK in 170ms (Views: 54.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/my_profile" for 127.0.0.1 at 2011-03-14 18:57:29 +0530
+  Processing by UsersController#my_profile as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 21) LIMIT 1
+Rendered users/my_profile.html.erb within layouts/login (125.4ms)
+Completed 200 OK in 129ms (Views: 128.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/system/avatars/21/thumb/black1.jpg?1300109214" for 127.0.0.1 at 2011-03-14 18:57:30 +0530
+
+ActionController::RoutingError (No route matches "/system/avatars/21/thumb/black1.jpg"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/system/avatars/21/thumb/black1.jpg?1300109214" for 127.0.0.1 at 2011-03-14 18:57:42 +0530
+
+ActionController::RoutingError (No route matches "/system/avatars/21/thumb/black1.jpg"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/vendor/plugins/paperclip/rails/init.rb. (called from <top (required)> at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from join at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/initializers/koala.rb:2)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2011-03-14 18:59:22 +0530
+  Processing by UsersController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 21) LIMIT 1
+Rendered users/new.html.erb within layouts/login (85.4ms)
+Completed 200 OK in 223ms (Views: 87.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-03-14 18:59:42 +0530
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fddy/a0oTs6+Sg9fYOVV4ugx8fpyYYogNGo6WvqQvx4=", "userr"=>{"login"=>"gty", "email"=>"gty@gmaill.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xae599e4 @original_filename="accounting.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"userr[avatar]\"; filename=\"accounting.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:/tmp/RackMultipart20110314-9683-1dutxhe>>}, "commit"=>"Sign up"}
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-9683-d8dknh.png[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-9683-d8dknh.png[0]' -resize "300x300>" '/tmp/stream20110314-9683-d8dknh20110314-9683-1mqer4k' 2>/dev/null
+[paperclip] /usr/bin//identify -format %wx%h '/tmp/stream20110314-9683-d8dknh.png[0]' 2>/dev/null
+[paperclip] /usr/bin//convert '/tmp/stream20110314-9683-d8dknh.png[0]' -resize "100x100>" '/tmp/stream20110314-9683-d8dknh20110314-9683-1gj4pey' 2>/dev/null
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.`id` FROM `users` WHERE (`users`.`login` = BINARY 'gty') LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'gty@gmaill.com') LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  describe `users`
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO `users` (`login`, `name`, `email`, `crypted_password`, `salt`, `created_at`, `updated_at`, `remember_token`, `remember_token_expires_at`, `avatar_file_name`, `avatar_content_type`, `avatar_file_size`, `avatar_updated_at`, `reset_code`) VALUES ('gty', '', 'gty@gmaill.com', 'f34b392e62b70cbe8f1fbdad646c4eca0aa937f4', '729644f6607858c6375d81fb8cec326f0ce94899', '2011-03-14 13:29:43', '2011-03-14 13:29:43', NULL, NULL, 'accounting.png', 'image/png', 1960, '2011-03-14 13:29:42', NULL)[0m
+[paperclip] Saving attachments.
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/system/avatars/22/original/accounting.png
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/system/avatars/22/medium/accounting.png
+[paperclip] saving /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/system/avatars/22/thumb/accounting.png
+  [1m[35mSQL (51.4ms)[0m  COMMIT
+Rendered notifier/send_welcome_registration.html.erb (0.6ms)
+
+Sent mail to gty@gmaill.com (6382ms)
+Return-Path: <pragtech.co.in>
+Date: Mon, 14 Mar 2011 18:59:44 +0530
+From: pragtech.co.in
+To: gty@gmaill.com
+Message-ID: <4d7e1848ad3f5_25d34fa6b22840ad@ptsadmin-desktop.mail>
+Subject: Send welcome registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+hello gty
+
+Thanks For Signing Up You Can Login And Use The Friendship Features Like Facebook.
+
+Please <a href="http://amenmobile.com:3000/login">Login </a>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 8306ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 18:59:51 +0530
+  Processing by UsersController#user_action as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms
+
+
+Started GET "/login" for 127.0.0.1 at 2011-03-14 18:59:51 +0530
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/login (4.9ms)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 53.8ms)
+DEPRECATION WARNING: Use toplevel init.rb; rails/init.rb is deprecated: /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/vendor/plugins/paperclip/rails/init.rb. (called from <top (required)> at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/environment.rb:5)
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from join at /home/ptsadmin/railsappfriend/workingprogressoffriendapp/amenmobile/config/initializers/koala.rb:2)
+
+
+Started POST "/session" for 127.0.0.1 at 2011-03-14 19:00:43 +0530
+  Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fddy/a0oTs6+Sg9fYOVV4ugx8fpyYYogNGo6WvqQvx4=", "login"=>"gty", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`login` = 'gty') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 230ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-14 19:00:44 +0530
+  Processing by UsersController#user_action as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 22) LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.friend_id WHERE ((`friendships`.user_id = 22) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `friendships` ON `users`.id = `friendships`.user_id WHERE ((`friendships`.friend_id = 22) AND ((`friendships`.`pending` = 0 AND `friendships`.`blocker_id` IS NULL)))[0m
+  [1m[35mPrayer Load (0.4ms)[0m  SELECT `prayers`.* FROM `prayers` WHERE (user_id in (22)) ORDER BY id desc
+Rendered users/user_action.html.erb within layouts/login (5.3ms)
+Completed 200 OK in 222ms (Views: 8.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users/my_profile" for 127.0.0.1 at 2011-03-14 19:00:46 +0530
+  Processing by UsersController#my_profile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 22) LIMIT 1[0m
+Rendered users/my_profile.html.erb within layouts/login (101.9ms)
+Completed 200 OK in 106ms (Views: 105.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/system/avatars/22/thumb/accounting.png?1300109382" for 127.0.0.1 at 2011-03-14 19:00:47 +0530
+
+ActionController::RoutingError (No route matches "/system/avatars/22/thumb/accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/system/avatars/22/thumb/accounting.png?1300109382" for 127.0.0.1 at 2011-03-14 19:00:50 +0530
+
+ActionController::RoutingError (No route matches "/system/avatars/22/thumb/accounting.png"):
+  
+
+Rendered /usr/local/ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
