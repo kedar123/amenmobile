@@ -30,10 +30,5 @@ test:
 
 production:
   adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: friendap_production
-  pool: 5
-  username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
+  database: amenmobile
+
