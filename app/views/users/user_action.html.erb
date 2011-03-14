@@ -38,7 +38,7 @@
                                        <p class="comment" style="clear:both;padding-top:2px;"> 
                                           <p id="commentimage">
                                             <%if comment.user.avatar_file_name.blank?%>
-                                             <%= image_tag("/users/code_image/#{current_user.id}", :alt => "Image",:size=>"50x50") %>
+                                             <%= image_tag("/users/code_image/#{comment.user.id}", :alt => "Image",:size=>"50x50") %>
                                                             
                                             <%else%>
      <%= image_tag comment.user.avatar.url(:thumb),:size=>"50x50",:style=>"float:left;padding:5px;" %>
