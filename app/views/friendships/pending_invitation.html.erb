@@ -9,7 +9,7 @@
                                        <%if pending_invited.avatar_file_name.blank?%>   
                                           <img src="/images/blank.jpeg"></img>
                                         <%else%>
-                                                  <%= image_tag "/users/code_image/#{pending_invited.id}"(:thumb),:size=>"50x50",:style=>"float:left;padding:5px;" %>
+        <%= image_tag "/users/code_image/#{pending_invited.id}",:size=>"50x50",:style=>"float:left;padding:5px;" %>
                      
                                         <%end%>  
 
