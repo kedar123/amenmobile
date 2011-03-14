@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :prayers
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" },
-    :path => ":rails_root/config/system/:attachment/:id/:style/:filename"
+    :path => ":rails_root/tmp/system/:attachment/:id/:style/:filename"
 
 
   set_table_name 'users'
