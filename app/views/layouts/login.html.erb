@@ -44,7 +44,13 @@ function  make_facebook_logout(){
  });
 
   FB.logout(function(response) {
+  redirect_me();
   });
+
+
+  
+}
+function redirect_me(){
 window.location = "http://empty-galaxy-933.heroku.com/";
   
 }

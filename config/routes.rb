@@ -3,6 +3,9 @@ Friendap::Application.routes.draw do
   match '/api/login' => 'api#login'
   match '/api/prayers' => 'api#prayers'
   match '/api/create_prayer' => 'api#create_prayer'
+  match '/facebook_logout' => 'sessions#facebook_logout'
+
+  
   resources :api
   resources :prayers
   resources :comments

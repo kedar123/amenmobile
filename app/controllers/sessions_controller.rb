@@ -39,9 +39,14 @@ class SessionsController < ApplicationController
     redirect_back_or_default('/login', :notice => "You have been logged out.")
   end
   
-  def facebook_logout
-  end   
-
+  
+   def facebook_logout
+      @facebook_cookies = nil
+      cookies.delete "fbs_" + 204607726219351.to_s
+      redirect_to :back
+   end  
+   
+ 
  
 protected
   # Track failed login attempts
