@@ -23,7 +23,6 @@ FB.login(function(response) {
 
 }
 function  make_facebook_logout(){
-
  FB.init({
  appId  : '<%= Facebook::APP_ID %>',
  status : true, // check login status
@@ -32,10 +31,8 @@ function  make_facebook_logout(){
  });
 
   FB.logout(function(response) {
-  // user is now logged out
-});
-
-  
+  });
+window.location = "http://empty-galaxy-933.heroku.com/";
 }
 
 
