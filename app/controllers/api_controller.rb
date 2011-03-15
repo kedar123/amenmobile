@@ -118,7 +118,7 @@ class ApiController < ApplicationController
       if @user.blank?
          userstatus="Not Authenticate"
       else  
-                 userstatus="Authenticate"
+         userstatus="Authenticate"
       end  
     respond_to do |wants|
       wants.html {render :text=>userstatus}

@@ -3,78 +3,43 @@ Friendap::Application.routes.draw do
   match '/api/login' => 'api#login'
   match '/api/prayers' => 'api#prayers'
   match '/api/create_prayer' => 'api#create_prayer'
-  
- 
   resources :api
-
   resources :prayers
-
   resources :comments
   match '/homes' => 'users#user_action'
   resources :reject_friends
   resources :homes
   resources :facebooktests
   match '/join_the_network/:id' => 'friend_requests#join_the_network'
-
   match '/users/code_image/:id' => 'users#code_image'
-
   match '/users/show_profile/:id' => 'users#show_profile'
-
   match '/reset/:reset_code' => 'users#reset'
-
   match '/users/forgot' => 'users#forgot'
-  
   match '/users/edit_profile' => 'users#edit_profile'
-  
   match '/users/update_profile' => 'users#update_profile'
-
   match '/users/koalatest' => 'users#koalatest'
-
   match '/friend_requests/friend_request' => 'friend_requests#friend_request'
-
   match '/friend_requests/send_friend_request' => 'friend_requests#send_friend_request'
-
   resources :friend_requests
-
   match '/friendships/invite_friend' => 'friendships#invite_friend'
-
   match '/friendships/pending_invitation' => 'friendships#pending_invitation'
-
   match '/friendships/accept_invitation' => 'friendships#accept_invitation'
-
   match '/friendships/invitation_by' => 'friendships#invitation_by'
-
   match '/friendships/invite' => 'friendships#invite'
-
   match '/friendships/invitation' => 'friendships#invitation'
-
   match '/friendships/get_all_friend' => 'friendships#get_all_friend'
-
   match '/users/my_profile' => 'users#my_profile'
-
   resources :friendships
-
   resources :users
-
   resource :session, :only => [:new, :create, :destroy]
-
   match 'signup' => 'users#new', :as => :signup
-
   match 'register' => 'users#create', :as => :register
-
   match 'login' => 'sessions#new', :as => :login
-
   match 'logout' => 'sessions#destroy', :as => :logout
-
   match '/activate/:activation_code' => 'users#activate', :as => :activate, :activation_code => nil
-
-
-
-  
   root :to => "users#user_action"
   # The priority is based upon order of creation:
   # first created -> highest priority.
-
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

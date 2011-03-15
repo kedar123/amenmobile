@@ -31,17 +31,14 @@
                                    <p class="prayer">
                                    Prayer Lang :-  <%=prayer.lang%>
                                    </p>    
-                                   
-                                   
                                     <%for comment in  @usercomments[com]%> 
                                        <div >    
                                        <p class="comment" style="clear:both;padding-top:2px;"> 
                                           <p id="commentimage">
-                                            <%if comment.user.avatar_file_name.blank?%>
-                                             <%= image_tag("/users/code_image/#{comment.user.id}", :alt => "Image",:size=>"50x50") %>
-                                                            
+                                            <%if comment.user.binary_data.blank?%>
+                                          <img src="/images/blank.jpeg"></img>                  
                                             <%else%>
-     <%= image_tag comment.user.avatar.url(:thumb),:size=>"50x50",:style=>"float:left;padding:5px;" %>
+                          <%= image_tag("/users/code_image/#{comment.user.id}", :alt => "Image",:size=>"50x50") %>
                                             <%end%>  
                                           </p>
                                         <p class="comment">
@@ -66,14 +63,7 @@
                               </form>
                           </div>  
                               <%end%>
-                     
-                       
                </div>         
-   
-
-   
-              
-              
     </div>
 
 

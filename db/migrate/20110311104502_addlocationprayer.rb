@@ -6,5 +6,8 @@ class Addlocationprayer < ActiveRecord::Migration
   end
 
   def self.down
+     remove_column :prayers, :location
+     remove_column :prayers, :title
+     remove_column :prayers, :description
   end
 end

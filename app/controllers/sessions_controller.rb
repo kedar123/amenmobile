@@ -1,9 +1,6 @@
 # This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController
    layout 'login'
-  # Be sure to include AuthenticationSystem in Application Controller instead
-  include AuthenticatedSystem
-
   # render new.rhtml
   def new
   end
@@ -41,7 +38,11 @@ class SessionsController < ApplicationController
     logout_killing_session!
     redirect_back_or_default('/login', :notice => "You have been logged out.")
   end
+  
+  def facebook_logout
+  end   
 
+ 
 protected
   # Track failed login attempts
   def note_failed_signin

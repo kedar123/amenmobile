@@ -2,8 +2,6 @@ class FacebooktestsController < ApplicationController
   # GET /facebooktests
   # GET /facebooktests.xml
   def index
-    #@facebooktests = Facebooktest.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @facebooktests }
@@ -14,7 +12,6 @@ class FacebooktestsController < ApplicationController
   # GET /facebooktests/1.xml
   def show
     @facebooktest = Facebooktest.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @facebooktest }
@@ -25,7 +22,6 @@ class FacebooktestsController < ApplicationController
   # GET /facebooktests/new.xml
   def new
     @facebooktest = Facebooktest.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @facebooktest }
@@ -41,7 +37,6 @@ class FacebooktestsController < ApplicationController
   # POST /facebooktests.xml
   def create
     @facebooktest = Facebooktest.new(params[:facebooktest])
-
     respond_to do |format|
       if @facebooktest.save
         format.html { redirect_to(@facebooktest, :notice => 'Facebooktest was successfully created.') }
@@ -57,8 +52,7 @@ class FacebooktestsController < ApplicationController
   # PUT /facebooktests/1.xml
   def update
     @facebooktest = Facebooktest.find(params[:id])
-
-    respond_to do |format|
+     respond_to do |format|
       if @facebooktest.update_attributes(params[:facebooktest])
         format.html { redirect_to(@facebooktest, :notice => 'Facebooktest was successfully updated.') }
         format.xml  { head :ok }
@@ -74,8 +68,7 @@ class FacebooktestsController < ApplicationController
   def destroy
     @facebooktest = Facebooktest.find(params[:id])
     @facebooktest.destroy
-
-    respond_to do |format|
+     respond_to do |format|
       format.html { redirect_to(facebooktests_url) }
       format.xml  { head :ok }
     end

@@ -3,7 +3,6 @@ class RejectFriendsController < ApplicationController
   # GET /reject_friends.xml
   def index
     @reject_friends = RejectFriend.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @reject_friends }
@@ -14,7 +13,6 @@ class RejectFriendsController < ApplicationController
   # GET /reject_friends/1.xml
   def show
     @reject_friend = RejectFriend.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @reject_friend }
@@ -25,7 +23,6 @@ class RejectFriendsController < ApplicationController
   # GET /reject_friends/new.xml
   def new
     @reject_friend = RejectFriend.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @reject_friend }
@@ -41,7 +38,6 @@ class RejectFriendsController < ApplicationController
   # POST /reject_friends.xml
   def create
     @reject_friend = RejectFriend.new(params[:reject_friend])
-
     respond_to do |format|
       if @reject_friend.save
         format.html { redirect_to(@reject_friend, :notice => 'Reject friend was successfully created.') }
@@ -57,7 +53,6 @@ class RejectFriendsController < ApplicationController
   # PUT /reject_friends/1.xml
   def update
     @reject_friend = RejectFriend.find(params[:id])
-
     respond_to do |format|
       if @reject_friend.update_attributes(params[:reject_friend])
         format.html { redirect_to(@reject_friend, :notice => 'Reject friend was successfully updated.') }

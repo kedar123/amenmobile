@@ -7,9 +7,6 @@ function make_facebook_login(){
  cookie : true, // enable cookies to allow the server to access the session
  xfbml  : true  // parse XFBML
  });
-
-
-
 FB.login(function(response) {
   if (response.session) {
     if (response.perms) {
@@ -25,6 +22,22 @@ FB.login(function(response) {
 }, {perms:"read_stream,publish_stream,offline_access,email"});
 
 }
+function  make_facebook_logout(){
+
+ FB.init({
+ appId  : '<%= Facebook::APP_ID %>',
+ status : true, // check login status
+ cookie : true, // enable cookies to allow the server to access the session
+ xfbml  : true  // parse XFBML
+ });
+
+  FB.logout(function(response) {
+  // user is now logged out
+});
+
+  
+}
+
 
 </script>
   <div id="upper_div">
@@ -35,10 +48,16 @@ FB.login(function(response) {
     </ul>
     <div id="fb_image_div">
        <div id="fb-root"></div>
-       <a href="#" onclick="make_facebook_login();">
-    <img src="/images/fb_login.gif">
-    </img>
-  </a>
+        <%if @facebook_cookies.blank?%>
+         <a href="#" onclick="make_facebook_login();">
+            <img src="/images/fb_login.gif"></img>
+         </a>
+        <%else%>
+         <a href="#" onclick="make_facebook_logout();">
+                <img src="/images/flogout.jpeg"></img>
+         </a> 
+        <%end%>
+  
     </div>
     <ul id="common_list">
        	<li >
@@ -64,23 +83,23 @@ FB.login(function(response) {
        <label for="name" class="form_label" >Login Name</label>
         <br/>
 
-       <%= f.text_field :login ,:class=>"form_input"%>
+       <%= f.text_field :login ,:class=>"form_input",:value=>current_user.login ,:readonly=>"true"%>
         <br/>
         <label for="name" class="form_label">Email</label>
         <br/>
 
-<%= f.text_field :email ,:class=>"form_input"%>
+<%= f.text_field :email ,:class=>"form_input",:value=>current_user.email,:readonly=>"true"%>
         <br/>        
 
        <label for="name" class="form_label">Password</label>
         <br/>
 
-    <%= f.text_field 'Password' ,:class=>"form_input"%>
+    <%= f.password_field 'password' ,:class=>"form_input"%>
        <br/>
        <label for="name" class="form_label">Confirmed Password</label>
        <br/>
 
-<%= f.text_field :password_confirmation ,:class=>"form_input"%>
+<%= f.password_field :password_confirmation ,:class=>"form_input"%>
        <br/>
        <label for="name" class="form_label">Avatar</label>
        <br/>
@@ -88,9 +107,6 @@ FB.login(function(response) {
    <%#= f.file_field :avatar,:class=>"form_input" %> 
    <%= f.file_field :image_file %>
        <br/>
-
-  
-
 <button id="contactsubmit" type="submit">Submit</button>
 <%end%>  
 

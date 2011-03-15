@@ -7,9 +7,9 @@ class Addimagefieldtouser < ActiveRecord::Migration
   end
 
   def self.down
-   remove_column :users, :description, :string
-   remove_column :users, :content_type, :string 
-   remove_column :users, :filename, :string 
-   remove_column :users, :binary_data, :binary    
+   remove_column :users, :description
+   remove_column :users, :content_type
+   remove_column :users, :filename
+   remove_column :users, :binary_data
   end
 end

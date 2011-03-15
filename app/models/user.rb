@@ -7,24 +7,23 @@ class User < ActiveRecord::Base
   include Amistad::FriendModel
   has_many :comments
   has_many :prayers
-
-  #has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" },
-   # :path => ":rails_root/tmp/system/:attachment/:id/:style/:filename"
-
-
   set_table_name 'users'
   
   def image_file=(input_data)
-    self.filename = input_data.original_filename
-    self.content_type = input_data.content_type.chomp
-    self.binary_data = input_data.read
-    
+    if !input_data.blank? 
+      if((input_data.content_type.chomp == "image/jpg") or (input_data.content_type.chomp == "image/png") or (input_data.content_type.chomp == "image/jpeg") or (input_data.content_type.chomp == "image/gif"))
+
+          self.filename = input_data.original_filename 
+          self.content_type = input_data.content_type.chomp
+          self.binary_data = input_data.read
+      end
+    end
   end
 
   validates :login, :presence   => true,
                     :uniqueness => true,
                     :length     => { :within => 3..40 },
-                    :format     => { :with => Authentication.login_regex, :message => Authentication.bad_login_message }
+                    :format     => { :with => Authentication.login_regex, :message =>                 Authentication.bad_login_message }
 
   validates :name,  :format     => { :with => Authentication.name_regex, :message => Authentication.bad_name_message },
                     :length     => { :maximum => 100 },
@@ -34,7 +33,9 @@ class User < ActiveRecord::Base
                     :uniqueness => true,
                     :format     => { :with => Authentication.email_regex, :message => Authentication.bad_email_message },
                     :length     => { :within => 6..100 }
-
+  validates :password, :presence   => true
+  validates :password_confirmation, :presence   => true
+  
   
 
   # HACK HACK HACK -- how to do attr_accessible from here?
@@ -66,8 +67,10 @@ class User < ActiveRecord::Base
 
   def create_reset_code
     @reset = true
-    self.reset_code = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )
-    self.save
+    p "im creating a reset code"
+    self.update_attribute(:reset_code, Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join ))
+    p self.reset_code
+    
   end 
 
   def recently_reset?

@@ -31,7 +31,26 @@ FB.login(function(response) {
   }
 }, {perms:"read_stream,publish_stream,offline_access,email"});
 
+
 }
+
+function  make_facebook_logout(){
+
+ FB.init({
+ appId  : '<%= Facebook::APP_ID %>',
+ status : true, // check login status
+ cookie : true, // enable cookies to allow the server to access the session
+ xfbml  : true  // parse XFBML
+ });
+
+  FB.logout(function(response) {
+  // user is now logged out
+});
+
+  
+}
+
+
 
 </script>
 
@@ -57,10 +76,16 @@ FB.login(function(response) {
     </ul>
     <div id="fb_image_div">
        <div id="fb-root"></div>
-       <a href="#" onclick="make_facebook_login();">
-    <img src="/images/fb_login.gif">
-    </img>
-  </a>
+        <%if @facebook_cookies.blank?%>
+         <a href="#" onclick="make_facebook_login();">
+            <img src="/images/fb_login.gif"></img>
+         </a>
+        <%else%>
+         <a href="#" onclick="make_facebook_logout();">
+                <img src="/images/flogout.jpeg"></img>
+         </a> 
+        <%end%>
+  
     </div>
  <%if current_user%>
     <ul id="common_list">

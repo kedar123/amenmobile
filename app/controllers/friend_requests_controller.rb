@@ -14,7 +14,6 @@ class FriendRequestsController < ApplicationController
       session[:friendid] = params[:id]
       flash[:notice] = "Please Register To Accept The Invitation"
       redirect_to "/users/new"
-     
   end  
 
   def friend_request
@@ -22,7 +21,7 @@ class FriendRequestsController < ApplicationController
       if friend.blank?
         Notifier.friend_request(params[:useremail],current_user).deliver       
       else  
-      current_user.invite  friend
+        current_user.invite  friend
       end
       flash[:notice] = "Your Invitation Has Been Sent"
       redirect_to "/"
@@ -34,7 +33,6 @@ class FriendRequestsController < ApplicationController
   # GET /friend_requests.xml
   def index
     @friend_requests = FriendRequest.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @friend_requests }
@@ -45,7 +43,6 @@ class FriendRequestsController < ApplicationController
   # GET /friend_requests/1.xml
   def show
     @friend_request = FriendRequest.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @friend_request }
@@ -72,7 +69,6 @@ class FriendRequestsController < ApplicationController
   # POST /friend_requests.xml
   def create
     @friend_request = FriendRequest.new(params[:friend_request])
-
     respond_to do |format|
       if @friend_request.save
         format.html { redirect_to(@friend_request, :notice => 'Friend request was successfully created.') }
@@ -88,7 +84,6 @@ class FriendRequestsController < ApplicationController
   # PUT /friend_requests/1.xml
   def update
     @friend_request = FriendRequest.find(params[:id])
-
     respond_to do |format|
       if @friend_request.update_attributes(params[:friend_request])
         format.html { redirect_to(@friend_request, :notice => 'Friend request was successfully updated.') }
@@ -105,7 +100,6 @@ class FriendRequestsController < ApplicationController
   def destroy
     @friend_request = FriendRequest.find(params[:id])
     @friend_request.destroy
-
     respond_to do |format|
       format.html { redirect_to(friend_requests_url) }
       format.xml  { head :ok }

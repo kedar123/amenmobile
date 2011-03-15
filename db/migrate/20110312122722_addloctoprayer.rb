@@ -6,5 +6,7 @@ class Addloctoprayer < ActiveRecord::Migration
   end
 
   def self.down
+    remove_column :prayers, :lat
+    remove_column :prayers, :lang
   end
 end

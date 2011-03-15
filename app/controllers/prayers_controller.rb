@@ -3,7 +3,6 @@ class PrayersController < ApplicationController
   # GET /prayers.xml
   def index
     @prayers = Prayer.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @prayers }
@@ -14,7 +13,6 @@ class PrayersController < ApplicationController
   # GET /prayers/1.xml
   def show
     @prayer = Prayer.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @prayer }
@@ -25,7 +23,6 @@ class PrayersController < ApplicationController
   # GET /prayers/new.xml
   def new
     @prayer = Prayer.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @prayer }
@@ -61,7 +58,6 @@ class PrayersController < ApplicationController
   # PUT /prayers/1.xml
   def update
     @prayer = Prayer.find(params[:id])
-
     respond_to do |format|
       if @prayer.update_attributes(params[:prayer])
         format.html { redirect_to(@prayer, :notice => 'Prayer was successfully updated.') }
@@ -78,7 +74,6 @@ class PrayersController < ApplicationController
   def destroy
     @prayer = Prayer.find(params[:id])
     @prayer.destroy
-
     respond_to do |format|
       format.html { redirect_to(prayers_url) }
       format.xml  { head :ok }

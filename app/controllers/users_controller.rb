@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
   layout 'login' 
-  # Be sure to include AuthenticationSystem in Application Controller instead
   before_filter :check_the_login,:only=>:user_action
-  
    def check_the_login
       if logged_in?
       else 
@@ -16,31 +14,29 @@ class UsersController < ApplicationController
   end    
  
   def code_image 
-  @image_data = User.find(params[:id])
-  @image = @image_data.binary_data
-  send_data(@image,:type => @image_data.content_type ,:filename => @image_data.filename , :disposition => 'inline')
+     @image_data = User.find(params[:id])
+     @image = @image_data.binary_data
+     send_data(@image,:type => @image_data.content_type ,:filename => @image_data.filename , :disposition => 'inline')
   end
  
  
  
   def edit_profile
-   
     render :layout=> 'editprofile'
   end  
 
   def update_profile
+    
     current_user.update_attributes(params[:user])
     current_user.image_file = params[:user][:image_file]
     current_user.save
       if !current_user.errors.full_messages.blank?
        flash[:notice] = "Please Enter Correct Information To Update "
-       #redirect_to :controller=>'users' ,:action=>'edit_profile',:error=>current_user.errors.full_messages
        render :action=>"edit_profile",:layout=>'editprofile'
       else 
        flash[:notice] = "Your Changes Has Been Updated"
        redirect_to "/users/edit_profile"
       end
-
   end   
 
   # render new.rhtml
@@ -60,9 +56,7 @@ class UsersController < ApplicationController
       # button. Uncomment if you understand the tradeoffs.
       # reset session
       #here i need to send email to the registered user
-      
       Notifier.send_welcome_registration(@user).deliver
-      
       if !session[:friendid].blank?
        tempuser = User.find(session[:friendid])
         session[:friendid] = nil
@@ -70,21 +64,15 @@ class UsersController < ApplicationController
         tempuser.invite current_user
         notice = "Logged in Successfully Please Accept The Invitation Of Your Friend By Clicking On   Invitation Pending" 
       end
-      
       flash[:notice]=notice
       redirect_back_or_default('/')
     else
       flash.now[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
-
       render :action => 'new'
     end
   end
 
   def user_action
-#       @facebook_cookies["access_token"]
-#        @graph = Koala::Facebook::GraphAPI.new(@facebook_cookies["access_token"])
-#	      @friends = @graph.get_connections("me", "friends")
-#        p @friends[0]
       total_friend_user = current_user.friends
       total_friend_ids = []
       total_friend_user.each {|frid|  total_friend_ids << frid.id  }      
@@ -105,7 +93,6 @@ class UsersController < ApplicationController
   
    def koalatest
       @graph = Koala::Facebook::GraphAPI.new(@facebook_cookies["access_token"])
-    
    end  
 
   def forgot
@@ -128,17 +115,14 @@ class UsersController < ApplicationController
 
     if @user.blank?  
         flash[:notice] = "Your Reset Code Has Been Expire Please Send Request Again"
-     
         redirect_to "/users/forgot"  
     else 
 
         if request.post?
           if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
-                 p "stille iiiiiiiiiiii"
                   flash[:notice]="Please Enter Password"  
                   render :action=>"reset"
           else
-              p "still im in else"
                 if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
                   self.current_user = @user
                   @user.delete_reset_code
@@ -165,8 +149,7 @@ class UsersController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @user }
       format.json  { render :json => @user }
-
-    end
+      end
   end  
 
 
