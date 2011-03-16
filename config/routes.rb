@@ -1,4 +1,5 @@
 Friendap::Application.routes.draw do
+
   resources :invitation_sents
 
   match '/api/testuser' => 'api#testuser'

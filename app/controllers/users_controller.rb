@@ -56,6 +56,7 @@ class UsersController < ApplicationController
       # button. Uncomment if you understand the tradeoffs.
       # reset session
       #here i need to send email to the registered user
+      self.current_user = @user # !! now logged in
       Notifier.send_welcome_registration(@user,request.host_with_port).deliver
       if !session[:friendid].blank?
         tempuser = User.find(session[:friendid])
@@ -63,7 +64,6 @@ class UsersController < ApplicationController
         tempuser.invite current_user
         notice = "Logged in Successfully Please Accept The Invitation Of Your Friend By Clicking On   Invitation Pending" 
       end
-      self.current_user = @user # !! now logged in
       flash[:notice]=notice
       redirect_back_or_default('/')
     else
