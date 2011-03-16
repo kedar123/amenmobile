@@ -3,8 +3,7 @@ Friendap::Application.routes.draw do
   match '/api/login' => 'api#login'
   match '/api/prayers' => 'api#prayers'
   match '/api/create_prayer' => 'api#create_prayer'
-  match '/facebook_logout' => 'sessions#facebook_logout'
-
+  match '/users/change_password' => 'users#change_password'
   
   resources :api
   resources :prayers
@@ -18,6 +17,7 @@ Friendap::Application.routes.draw do
   match '/users/show_profile/:id' => 'users#show_profile'
   match '/reset/:reset_code' => 'users#reset'
   match '/users/forgot' => 'users#forgot'
+  match '/users/update_password' => 'users#update_password'
   match '/users/edit_profile' => 'users#edit_profile'
   match '/users/update_profile' => 'users#update_profile'
   match '/users/koalatest' => 'users#koalatest'

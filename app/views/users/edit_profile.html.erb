@@ -83,6 +83,9 @@ window.location = "http://empty-galaxy-933.heroku.com/";
              <div id="form_div" > 
           <label class="prayer_label" >Update Your Profile</label>
   <% form_for :user, @user, :url => "/users/update_profile", :html => { :multipart => true } do |f| %>
+        <div style="float: right; margin-left: 300px;">
+          <a href="/users/change_password">Change Password</a>
+        </div>
        <label for="name" class="form_label" >Login Name</label>
         <br/>
 
@@ -93,20 +96,20 @@ window.location = "http://empty-galaxy-933.heroku.com/";
 
 <%= f.text_field :email ,:class=>"form_input",:value=>current_user.email,:readonly=>"true"%>
         <br/>        
-
+<!--
        <label for="name" class="form_label">Password</label>
         <br/>
-
-    <%= f.password_field 'password' ,:class=>"form_input"%>
-       <br/>
+-->
+    <%#= f.password_field 'password' ,:class=>"form_input"%>
+       <!--<br/>
        <label for="name" class="form_label">Confirmed Password</label>
        <br/>
 
 <%= f.password_field :password_confirmation ,:class=>"form_input"%>
+ -->
        <br/>
        <label for="name" class="form_label">Avatar</label>
-       <br/>
-
+   
    <%#= f.file_field :avatar,:class=>"form_input" %> 
    <%= f.file_field :image_file %>
        <br/>

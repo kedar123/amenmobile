@@ -6,8 +6,6 @@
                       <table>
                       <tr><td>Title:-</td><td><%=text_field 'prayer' ,'title'%></td></tr>
                       <tr><td>Description:-</td><td><%=text_area 'prayer' ,'description', :rows => 2, :cols => 35%></td></tr>
-                      <tr><td>Lat:-</td><td><%=text_field 'prayer' ,'lat'%></td></tr>
-                      <tr><td>Lang:-</td><td><%=text_field 'prayer' ,'lang'%></td></tr>
                       
                       </table>
                       <%=hidden_field 'prayer','user_id',:value=>current_user.id%>
@@ -25,12 +23,7 @@
                                    <p class="prayer">
                                    Prayer description :-  <%=prayer.description%>
                                    </p>
-                                   <p class="prayer">
-                                   Prayer Lat :-  <%=prayer.lat%>
-                                   </p>    
-                                   <p class="prayer">
-                                   Prayer Lang :-  <%=prayer.lang%>
-                                   </p>    
+                                   
                                     <%for comment in  @usercomments[com]%> 
                                        <div >    
                                        <p class="comment" style="clear:both;padding-top:2px;"> 

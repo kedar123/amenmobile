@@ -152,6 +152,18 @@ class UsersController < ApplicationController
       end
   end  
 
+  def change_password
+  end  
+  
+  def update_password
+    current_user.update_attributes(params[:user])
+    if !current_user.errors.full_messages.blank?   
+          render :action=>"change_password"
+    else     
 
+          flash[:notice] = "Your Changes Has Been Updated"
+          redirect_to "/users/change_password"      
+    end  
+  end  
 
 end
