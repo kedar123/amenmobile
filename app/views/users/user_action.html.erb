@@ -18,10 +18,10 @@
                           <div>
                               <div style="padding-top:20px;">          
                                    <p class="prayer">
-                                   Prayer Added  By  <%=prayer.user.login%> :-  <%=prayer.title%>
+                                   Prayer Added  By  <%=prayer.user.login%> :-  <p style="padding-left:20px" ><%=prayer.title%></p>
                                    </p>  
                                    <p class="prayer">
-                                   Prayer description :-  <%=prayer.description%>
+                                   Prayer description :-  <p style="padding-left:20px"><%=prayer.description%></p>
                                    </p>
                                    
                                     <%for comment in  @usercomments[com]%> 
@@ -35,7 +35,7 @@
                                             <%end%>  
                                           </p>
                                         <p class="comment">
-                                              Comment Added By <%=comment.user.login%> :-  <%=comment.comment%>
+                                              Comment Added By <%=comment.user.login%> :-  <p style="padding-left:70px"><%=comment.comment%></p>
                                         </p>        
                                         </p>  
                                         </div>
