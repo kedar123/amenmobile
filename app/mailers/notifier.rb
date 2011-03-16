@@ -4,19 +4,22 @@ class Notifier < ActionMailer::Base
 
 
   
-   def friend_request(recipient,username)
+   def friend_request(recipient,username,my_host_with_port)
      @username = username
      @femail = recipient
+     @my_host_with_port = my_host_with_port
      mail(:to => recipient)
    end
 
-   def send_welcome_registration(myuser)
+   def send_welcome_registration(myuser,my_host_with_port)
        @userlogin =  myuser.login
+       @my_host_with_port = my_host_with_port
        mail(:to => myuser.email)
    end  
 
-   def send_reset_code(user)
+   def send_reset_code(user,my_host_with_port)
      @user = user
+     @my_host_with_port = my_host_with_port
      mail(:to => user.email)
    end      
 

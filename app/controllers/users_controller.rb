@@ -56,14 +56,14 @@ class UsersController < ApplicationController
       # button. Uncomment if you understand the tradeoffs.
       # reset session
       #here i need to send email to the registered user
-      Notifier.send_welcome_registration(@user).deliver
+      Notifier.send_welcome_registration(@user,request.host_with_port).deliver
       if !session[:friendid].blank?
-       tempuser = User.find(session[:friendid])
+        tempuser = User.find(session[:friendid])
         session[:friendid] = nil
-        self.current_user = @user # !! now logged in
         tempuser.invite current_user
         notice = "Logged in Successfully Please Accept The Invitation Of Your Friend By Clicking On   Invitation Pending" 
       end
+      self.current_user = @user # !! now logged in
       flash[:notice]=notice
       redirect_back_or_default('/')
     else
@@ -100,7 +100,7 @@ class UsersController < ApplicationController
       user = User.find_by_email(params[:user][:email])
       if user
         user.create_reset_code
-        Notifier.send_reset_code(user).deliver
+        Notifier.send_reset_code(user,request.host_with_port).deliver
         flash[:notice] = "Reset code sent to #{user.email}"
       else
         flash[:notice] = "#{params[:user][:email]} does not exist in system"

@@ -18,13 +18,21 @@ class FriendRequestsController < ApplicationController
 
   def friend_request
       friend = User.find_by_email(params[:useremail])
-      if friend.blank?
-        Notifier.friend_request(params[:useremail],current_user).deliver       
+      invitation_sent = InvitationSent.where(["from_email = ? and to_email = ?",current_user.email,params[:useremail]])
+      if  invitation_sent.blank?
+             invsnt=InvitationSent.new(:from_email=>current_user.email,:to_email=>params[:useremail])
+             invsnt.save
+              if friend.blank?
+                  Notifier.friend_request(params[:useremail],current_user,request.host_with_port).deliver       
+              else  
+                  current_user.invite  friend
+              end
+              flash[:notice] = "Your Invitation Has Been Sent"
+              redirect_to "/"
       else  
-        current_user.invite  friend
-      end
-      flash[:notice] = "Your Invitation Has Been Sent"
-      redirect_to "/"
+               flash[:notice] = "You Already Sent The Invitation"
+               redirect_to "/"
+      end              
   end  
   
   

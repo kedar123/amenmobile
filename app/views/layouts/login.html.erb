@@ -51,8 +51,9 @@ function  make_facebook_logout(){
   
 }
 function redirect_me(){
-window.location = "http://empty-galaxy-933.heroku.com/";
-  
+
+window.location = "http://<%=request.host_with_port%>/";
+
 }
 
 

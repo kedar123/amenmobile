@@ -1,4 +1,6 @@
 Friendap::Application.routes.draw do
+  resources :invitation_sents
+
   match '/api/testuser' => 'api#testuser'
   match '/api/login' => 'api#login'
   match '/api/prayers' => 'api#prayers'
