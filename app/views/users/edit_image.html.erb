@@ -81,39 +81,13 @@ window.location = "http://<%=request.host_with_port%>/";
                  <%end%>
           </div>
              <div id="form_div" > 
-          <label class="prayer_label" >Update Your Profile</label>
-  <% form_for :user, @user, :url => "/users/update_profile", :html => { :multipart => true } do |f| %>
-        <div style="float: right; margin-left: 300px;">
-          <a href="/users/change_password">Change Password</a>
-        </div>
-       <label for="name" class="form_label" >Login Name</label>
-        <br/>
-
-       <%= f.text_field :login ,:class=>"form_input",:value=>current_user.login ,:readonly=>"true"%>
-        <br/>
-        <label for="name" class="form_label">Email</label>
-        <br/>
-
-<%= f.text_field :email ,:class=>"form_input",:value=>current_user.email,:readonly=>"true"%>
-        <br/>        
-<!--
-       <label for="name" class="form_label">Password</label>
-        <br/>
--->
-    <%#= f.password_field 'password' ,:class=>"form_input"%>
-       <!--<br/>
-       <label for="name" class="form_label">Confirmed Password</label>
-       <br/>
-
-<%= f.password_field :password_confirmation ,:class=>"form_input"%>
- -->
-       <br/>
-       <label for="name" class="form_label">Avatar</label>
-   
-   <%#= f.file_field :avatar,:class=>"form_input" %> 
-   <%= f.file_field :image_file %>
-       <br/>
-<button id="contactsubmit" type="submit">Submit</button>
+          <label class="prayer_label" >Update Your Avatar</label>
+  <% form_for :user, @user, :url => "/users/update_image", :html => { :multipart => true } do |f| %>
+          <br/>
+          <label for="name" class="form_label">Avatar</label>
+           <%= f.file_field :image_file %>
+          <br/>
+          <button id="contactsubmit" type="submit">Submit</button>
 <%end%>  
 
   </div>         

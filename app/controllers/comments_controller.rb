@@ -46,17 +46,21 @@ class CommentsController < ApplicationController
          redirect_to :back
           return 
       else        
-        respond_to do |format|
-            if @comment.save
-                format.html { redirect_to('/') }
-                format.xml  { render :xml => @comment, :status => :created, :location => @comment }
-            else
-                format.html { render :action => "new" }
-                format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
-            end
-        end
-    end
-
+        if params[:comment][:comment].length > 100
+          flash[:notice]="Your Comment Character Should Not Be Greater Than 100 Characters"
+          redirect_to :back
+        else
+                 respond_to do |format|
+                     if @comment.save
+                         format.html { redirect_to('/') }
+                         format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+                     else
+                         format.html { render :action => "new" }
+                         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+                     end
+                  end
+         end
+     end
   end
 
   # PUT /comments/1

@@ -2,7 +2,7 @@
     <div id="middle_div"> 
       <p style="padding-left:20%;padding-top:2%">  <label class="prayer_label">Following Are The Invitation Pending For <%=current_user.login%></label></p>
        <div id="friend_list">
-            Invitation Pending List
+           <span class="prayer_label" style="font-weight:normal"> Click On User Name To Accept The Invitation</span>
                    <% for pending_invited in @pending_invited_by%>  
                           
  <div >
@@ -12,8 +12,9 @@
         <%= image_tag "/users/code_image/#{pending_invited.id}",:size=>"50x50",:style=>"float:left;padding:5px;" %>
                      
                                         <%end%>  
-
+<span class="prayer_label">
                                  <%= link_to pending_invited.login ,  :controller=>'friendships' ,:action=>'accept_invitation',:id=>pending_invited.id%>
+                                 </span>
                                     </div>
                         <%end%>  
   

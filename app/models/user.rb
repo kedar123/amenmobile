@@ -9,13 +9,14 @@ class User < ActiveRecord::Base
   has_many :prayers
   set_table_name 'users'
   
-  def image_file=(input_data)
+  def image_file(input_data)
     if !input_data.blank? 
       if((input_data.content_type.chomp == "image/jpg") or (input_data.content_type.chomp == "image/png") or (input_data.content_type.chomp == "image/jpeg") or (input_data.content_type.chomp == "image/gif"))
 
-          self.filename = input_data.original_filename 
-          self.content_type = input_data.content_type.chomp
-          self.binary_data = input_data.read
+          self.update_attribute(:filename , input_data.original_filename )
+          self.update_attribute(:content_type , input_data.content_type.chomp)
+          self.update_attribute(:binary_data , input_data.read)
+          
       end
     end
   end

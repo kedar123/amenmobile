@@ -25,6 +25,29 @@ class UsersController < ApplicationController
     render :layout=> 'editprofile'
   end  
 
+  def edit_image
+    render :layout=> 'editprofile'
+  end  
+
+  def update_image
+	  
+	  if params[:user].blank? or params[:user][:image_file].blank?
+		  flash[:notice] = "Please Enter Image To Change"
+		  redirect_to :back
+	  else
+		if((params[:user][:image_file].content_type.chomp == "image/jpg") or (params[:user][:image_file].content_type.chomp == "image/png") or (params[:user][:image_file].content_type.chomp == "image/jpeg") or (params[:user][:image_file].content_type.chomp == "image/gif"))
+			current_user.image_file(params[:user][:image_file])		
+			flash[:notice] = "Your Changes Has Been Updated"
+			redirect_to :back
+		else
+		   flash[:notice] = "Please Enter Valid Image "
+		  redirect_to :back
+		end			
+		  
+          end		  
+  end	  
+
+
   def update_profile
     
     current_user.update_attributes(params[:user])
@@ -38,6 +61,8 @@ class UsersController < ApplicationController
        redirect_to "/users/edit_profile"
       end
   end   
+
+
 
   # render new.rhtml
   def new

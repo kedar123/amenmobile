@@ -7,6 +7,8 @@ Friendap::Application.routes.draw do
   match '/api/prayers' => 'api#prayers'
   match '/api/create_prayer' => 'api#create_prayer'
   match '/users/change_password' => 'users#change_password'
+  match '/users/edit_image' => 'users#edit_image'
+  match '/users/update_image' => 'users#update_image'
   
   resources :api
   resources :prayers

@@ -9,7 +9,11 @@
           <div id="middle_div_profile_image" >
           <label class="prayer_labelp">
               <%#= image_tag current_user.avatar.url(:thumb) %>
+               <%if current_user.binary_data.blank?%>
+                   <img src="/images/blank.jpeg"></img> 
+                <%else%>   
                <%= image_tag("/users/code_image/#{current_user.id}", :alt => "Image",:size=>"100x100") %>
+               <% end %>
               </label>
           </div>
 <div id="middle_div_profile_content">
@@ -24,7 +28,9 @@
           <div id="middle_div_profile_image" >
           <label class="prayer_labelp"> <%= current_user.login %></label>
 <div id="edit_button">
-<%=link_to "Edit Profile",:controller=>"users",:action=>"edit_profile"%>
+<%=link_to "Edit Image",:controller=>"users",:action=>"edit_image"%>
+<a href="/users/change_password">Change Password</a>
+
 </div>
           </div>
           

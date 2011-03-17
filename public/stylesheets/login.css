@@ -183,7 +183,7 @@ a:hover {
 
 
 #middleprayer{
-width:50%;
+width:40%;
 padding-top:10px;
 padding-left:10%;
 float:left;
@@ -218,7 +218,7 @@ padding-top:10px;
 
 .prayer_label{
 color: #3B5998;
-font-size: 1.1em;
+font-size: 12px;
 font-weight: bold;
 line-height: 1.37em;
 margin-top:5px;  
@@ -236,7 +236,7 @@ padding-left:12px;
 
 .prayer{
 color: #717D7D;
-font-size: 15px;
+font-size: 12px;
 font-weight: normal;
 line-height: 1.37em;
 margin-top: 13px;
@@ -249,6 +249,7 @@ font-weight: normal;
 line-height: 1.37em;
 margin-top:5px;
 background-color:#FFFFFF;
+
 width:95%;
 padding-top:2px;
 

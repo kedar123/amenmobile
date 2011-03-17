@@ -37,11 +37,18 @@ class PrayersController < ApplicationController
   # POST /prayers
   # POST /prayers.xml
   def create
+    
     @prayer = Prayer.new(params[:prayer])
+    
+    
       if params[:prayer][:title].blank? or params[:prayer][:description].blank? 
           flash[:notice] = "Please Enter A Prayer All Fields"  
           redirect_to :back
       else
+        if params[:prayer][:title].length > 100 or params[:prayer][:description].length > 100 
+          flash[:notice] = "Your Prayer Title And Description Should Not Be Greater Than 100 Characters"  
+          redirect_to :back
+         else  
           respond_to do |format|
             if @prayer.save
               format.html { redirect_to "/" }
@@ -51,7 +58,12 @@ class PrayersController < ApplicationController
               format.xml  { render :xml => @prayer.errors, :status => :unprocessable_entity }
             end
           end
+       end       
+          
       end
+      
+      
+      
   end
 
   # PUT /prayers/1
