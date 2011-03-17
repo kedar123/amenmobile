@@ -72,7 +72,7 @@ class UsersController < ApplicationController
   def create
     logout_keeping_session!
     @user = User.new(params[:userr])
-    @user.image_file = params[:userr][:image_file]
+    @user.image_file(params[:userr][:image_file])
     success = @user && @user.save 
     if success && @user.errors.empty?
        notice = "Logged in Successfully"
