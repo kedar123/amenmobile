@@ -28,8 +28,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
-    amistad (0.7.1)
-    arel (2.0.7)
+    arel (2.0.9)
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -48,7 +47,7 @@ GEM
       activerecord
       activesupport
     polyglot (0.3.1)
-    rack (1.2.1)
+    rack (1.2.2)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
     rack-test (0.5.7)
@@ -70,13 +69,12 @@ GEM
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
-    tzinfo (0.3.24)
+    tzinfo (0.3.25)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  amistad
   koala
   mysql2
   paperclip
