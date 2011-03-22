@@ -68,10 +68,7 @@ class User < ActiveRecord::Base
 
   def create_reset_code
     @reset = true
-    p "im creating a reset code"
     self.update_attribute(:reset_code, Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join ))
-    p self.reset_code
-    
   end 
 
   def recently_reset?
@@ -82,6 +79,12 @@ class User < ActiveRecord::Base
     self.reset_code = nil
     self.save
   end
+
+  def reject(friend)
+      frsh=Friendship.find_by_user_id_and_friend_id(friend.id,self.id)
+      frsh.rejecter_id = self.id
+      frsh.save
+  end  
 
 
   protected

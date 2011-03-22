@@ -23,6 +23,8 @@ class FriendshipsController < ApplicationController
   def pending_invitation
     @user = User.find(current_user.id)       
     @pending_invited_by = @user.pending_invited_by
+    @rejected_friends = @user.rejected
+    @rejected_friends_req = @user.find_friend_ship_rejected
   end  
     
   #the friends who invited user and user accepts it
@@ -44,6 +46,16 @@ class FriendshipsController < ApplicationController
     redirect_to :back
   end  
     
+   def reject_invitation
+    @user = User.find(current_user.id)       
+    @friend = User.find(params[:id])  
+    @user.reject  @friend
+    flash[:notice] = "Friendship is rejected"
+    redirect_to :back
+
+          
+   end  
+
 
   def get_all_friend
       @user = User.find(current_user.id)       

@@ -6,10 +6,16 @@ Friendap::Application.routes.draw do
   match '/api/login' => 'api#login'
   match '/api/prayers' => 'api#prayers'
   match '/api/create_prayer' => 'api#create_prayer'
-  match '/users/change_password' => 'users#change_password'
+  match '/api/get_friend_list' => 'api#get_friend_list'
+  match '/api/create_user' => 'api#create_user'
+  match '/api/friend_request' => 'api#friend_request'
+  match '/api/rejected_friends' => 'api#rejected_friends'
+  match '/api/get_invitation_pending' => 'api#get_invitation_pending'
+  match '/api/accept_invitation' => 'api#accept_invitation'
+  match '/api/reject_invitation' => 'api#reject_invitation'
   match '/users/edit_image' => 'users#edit_image'
   match '/users/update_image' => 'users#update_image'
-  
+  match '/users/change_password' => 'users#change_password'
   resources :api
   resources :prayers
   resources :comments
@@ -32,6 +38,7 @@ Friendap::Application.routes.draw do
   match '/friendships/invite_friend' => 'friendships#invite_friend'
   match '/friendships/pending_invitation' => 'friendships#pending_invitation'
   match '/friendships/accept_invitation' => 'friendships#accept_invitation'
+  match '/friendships/reject_invitation' => 'friendships#reject_invitation'
   match '/friendships/invitation_by' => 'friendships#invitation_by'
   match '/friendships/invite' => 'friendships#invite'
   match '/friendships/invitation' => 'friendships#invitation'
