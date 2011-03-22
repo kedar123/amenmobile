@@ -131,7 +131,6 @@ module Amistad
         end
 
         def find_friend_ship_rejected
-          p "im printing from gem "
           friendship = Friendship.where(["friend_id = ? and rejecter_id is not null ",self.id])
           friendship
         end  
