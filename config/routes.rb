@@ -13,6 +13,7 @@ Friendap::Application.routes.draw do
   match '/api/get_invitation_pending' => 'api#get_invitation_pending'
   match '/api/accept_invitation' => 'api#accept_invitation'
   match '/api/reject_invitation' => 'api#reject_invitation'
+  match '/api/logout' => 'api#logout'
   match '/users/edit_image' => 'users#edit_image'
   match '/users/update_image' => 'users#update_image'
   match '/users/change_password' => 'users#change_password'

@@ -2,13 +2,25 @@ class ApiController < ApplicationController
   # GET /apis
   # GET /apis.xml
   before_filter :get_my_ip_address
+  before_filter :logged_in ,:except=>"login"
+  
+  def logged_in
+      if logged_in?
+      else
+         respond_to do |format|
+            format.xml  {redirect_to "/api/login.xml"}
+         end
+      end   
+  end  
+  
   
   def get_my_ip_address
       @my_host_and_port = request.host_with_port
   end  
+  
   def friend_request
       friend = User.find_by_email(params[:user][:email])
-      iphoneloggedinuser = User.find(params[:user][:id])
+      iphoneloggedinuser = current_user
       invitation_sent = InvitationSent.where(["from_email = ? and to_email = ?",iphoneloggedinuser.email,params[:user][:email]])
       if  invitation_sent.blank?
              invsnt=InvitationSent.new(:from_email=>iphoneloggedinuser.email,:to_email=>params[:user][:email])
@@ -31,12 +43,12 @@ class ApiController < ApplicationController
  end  
   
  def get_invitation_pending
-     @user = User.find(params[:user][:id])       
+     @user = current_user       
      @pending_invited_by = @user.pending_invited_by
  end   
   
  def accept_invitation
-    @user = User.find(params[:user][:id])       
+    @user = current_user
     @friend = User.find(params[:friend][:id]) 
     if params[:user][:accept] == "1"
           @user.approve  @friend
@@ -54,7 +66,7 @@ class ApiController < ApplicationController
  end   
   
  def rejected_friends
-    @user = User.find(params[:user][:id])
+    @user = current_user
     @rejected_friends = @user.rejected
     @rejected_friends_req = @user.find_friend_ship_rejected
     respond_to do |format|
@@ -66,6 +78,7 @@ class ApiController < ApplicationController
   
   def create_prayer
     @prayer = Prayer.new(params[:prayer])
+    @prayer.user_id = current_user.id
       if params[:prayer].blank? or params[:prayer][:title].blank? or params[:prayer][:description].blank? 
           flash[:notice] = "Please Enter A Prayer All Fields"  
           respond_to do |format|
@@ -85,109 +98,41 @@ class ApiController < ApplicationController
       end
   end
   
-  
-  def index
-    @apis = Api.all
-   respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @apis }
-    end
-  end
-
-  # GET /apis/1
-  # GET /apis/1.xml
-  def show
-    @api = Api.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @api }
-    end
-  end
-
-  # GET /apis/new
-  # GET /apis/new.xml
-  def new
-    @api = Api.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @api }
-    end
-  end
-
-  # GET /apis/1/edit
-  def edit
-    @api = Api.find(params[:id])
-  end
-
-  # POST /apis
-  # POST /apis.xml
-  def create
-    @api = Api.new(params[:api])
-
-    respond_to do |format|
-      if @api.save
-        format.html { redirect_to(@api, :notice => 'Api was successfully created.') }
-        format.xml  { render :xml => @api, :status => :created, :location => @api }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @api.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /apis/1
-  # PUT /apis/1.xml
-  def update
-    @api = Api.find(params[:id])
-
-    respond_to do |format|
-      if @api.update_attributes(params[:api])
-        format.html { redirect_to(@api, :notice => 'Api was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @api.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /apis/1
-  # DELETE /apis/1.xml
-  def destroy
-    @api = Api.find(params[:id])
-    @api.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(apis_url) }
-      format.xml  { head :ok }
-    end
-  end
-
   def testuser
       @user=User.find(:all)
   end  
   
   def prayers
-     @user = User.find(params[:id])
+     @user = current_user #User.find(params[:id])
       respond_to do |wants|
       wants.html 
       wants.xml
     end 
+    
   end  
   
+  def logout
+    current_user = nil
+    reset_session
+    respond_to do |wants|
+      wants.xml
+    end 
+  end  
+  
+  
   def login
-        @user =  User.authenticate(params[:name], params[:password])
+      @user =  User.authenticate(params[:name], params[:password])
       if @user.blank?
                  userstatus="Not Authenticate"
       else  
-                 userstatus="Authenticate"
+                self.current_user = @user
+                userstatus="Authenticate"
       end  
     respond_to do |wants|
       wants.html {render :text=>userstatus}
       wants.xml
     end 
+    
   end   
   
   def create_user
@@ -229,7 +174,7 @@ class ApiController < ApplicationController
 end  
   
   def get_friend_list
-      @user = User.find(params[:id])       
+      @user = current_user
       @userallfriend = @user.friends
   end
   

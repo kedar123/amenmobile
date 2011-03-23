@@ -98,6 +98,7 @@ class UsersController < ApplicationController
   end
 
   def user_action
+	  
       total_friend_user = current_user.friends
       total_friend_ids = []
       total_friend_user.each {|frid|  total_friend_ids << frid.id  }      
@@ -113,7 +114,7 @@ class UsersController < ApplicationController
                     totalusc.delete(usc)
                  end           
              end      
-      end  
+     end  
   end  
   
    def koalatest
