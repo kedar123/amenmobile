@@ -2,7 +2,7 @@ class ApiController < ApplicationController
   # GET /apis
   # GET /apis.xml
   before_filter :get_my_ip_address
-  before_filter :logged_in ,:except=>"login"
+  before_filter :logged_in ,:except=>["login","create_user"]
   
   def logged_in
       if logged_in?
