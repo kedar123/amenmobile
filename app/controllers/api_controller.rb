@@ -82,17 +82,19 @@ class ApiController < ApplicationController
       if params[:prayer].blank? or params[:prayer][:title].blank? or params[:prayer][:description].blank? 
           flash[:notice] = "Please Enter A Prayer All Fields"  
           respond_to do |format|
-               format.xml  { render :xml => "<error>please enter proper field</error>", :status => :unprocessable_entity }  
+               format.xml  { render :xml => "<?xml version='1.0' encoding='UTF-8'?><message>please enter proper field</message>", :status => :unprocessable_entity }  
                format.html {redirect_to :back}    
           end
       else
           respond_to do |format|
+            @prayer_created = true
             if @prayer.save
               format.html { redirect_to "/" }
-              format.xml  { render :xml => @prayer, :status => :created }
+              format.xml  #{ render :xml => @prayer, :status => :created }
             else
+              @prayer_created = false
               format.html { render :action => "new" }
-              format.xml  { render :xml => @prayer.errors, :status => :unprocessable_entity }
+              format.xml  #{ render :xml => @prayer.errors, :status => :unprocessable_entity }
             end
           end
       end
@@ -102,14 +104,30 @@ class ApiController < ApplicationController
       @user=User.find(:all)
   end  
   
-  def prayers
-     @user = current_user #User.find(params[:id])
+  def current_user_prayers
+    @uprayer = current_user.prayers.all(:order => "id desc")
       respond_to do |wants|
       wants.html 
       wants.xml
     end 
-    
+
   end  
+  
+  def get_all_users
+    @users = User.find(:all)
+  end  
+  
+  def prayers
+     total_friend_user = current_user.friends
+     total_friend_ids = []
+     total_friend_user.each {|frid|  total_friend_ids << frid.id  }      
+     total_friend_ids << current_user.id
+     @uprayer=[]
+     @uprayer = Prayer.find(:all,:conditions=>"user_id in (#{total_friend_ids.join(',')})",:order =>"id desc")
+      
+  end  
+  
+  
   
   def logout
     current_user = nil
