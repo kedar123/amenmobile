@@ -113,6 +113,17 @@ class ApiController < ApplicationController
 
   end  
   
+  
+  def selected_user_prayers
+     selected_user = User.find(params[:id])	  
+    @uprayer = selected_user.prayers.all(:order => "id desc")
+      respond_to do |wants|
+      wants.html 
+      wants.xml
+    end 
+
+  end  
+  
   def get_all_users
     @users = User.find(:all)
   end  

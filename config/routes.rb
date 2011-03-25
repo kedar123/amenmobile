@@ -5,7 +5,7 @@ Friendap::Application.routes.draw do
   match '/api/testuser' => 'api#testuser'
   match '/api/login' => 'api#login'
   match '/api/current_user_prayers' => 'api#current_user_prayers'
-  
+  match '/api/selected_user_prayers' => 'api#selected_user_prayers'
   match '/api/prayers' => 'api#prayers'
   match '/api/create_prayer' => 'api#create_prayer'
   match '/api/get_friend_list' => 'api#get_friend_list'
