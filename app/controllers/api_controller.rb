@@ -148,6 +148,25 @@ class ApiController < ApplicationController
     end 
   end  
   
+  def  delete_prayer
+	  prayer = Prayer.find(params[:id])
+	  prayer.destroy
+	  respond_to do |wants|
+		wants.html {render :text=>userstatus}
+		wants.xml
+	  end 
+  end	  
+  
+  
+  def get_prayer_comments
+	  @prayer = Prayer.find(params[:id])
+	  
+	  respond_to do |wants|
+		wants.html {render :text=>userstatus}
+		wants.xml
+	  end 
+  end	  
+  
   
   def login
       @user =  User.authenticate(params[:name], params[:password])

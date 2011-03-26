@@ -10,13 +10,16 @@ Friendap::Application.routes.draw do
   match '/api/create_prayer' => 'api#create_prayer'
   match '/api/get_friend_list' => 'api#get_friend_list'
   match '/api/get_all_users' => 'api#get_all_users'
-  
+  match '/api/get_all_users' => 'api#get_all_users'
+  match '/api/delete_prayer' => 'api#delete_prayer'
   match '/api/create_user' => 'api#create_user'
   match '/api/friend_request' => 'api#friend_request'
   match '/api/rejected_friends' => 'api#rejected_friends'
   match '/api/get_invitation_pending' => 'api#get_invitation_pending'
   match '/api/accept_invitation' => 'api#accept_invitation'
   match '/api/reject_invitation' => 'api#reject_invitation'
+  match '/api/get_prayer_comments' => 'api#get_prayer_comments'
+  
   match '/api/logout' => 'api#logout'
   match '/users/edit_image' => 'users#edit_image'
   match '/users/update_image' => 'users#update_image'
