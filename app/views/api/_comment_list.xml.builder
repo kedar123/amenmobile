@@ -1,6 +1,6 @@
 xml = xml_override
 
- xml.comment do
+ xml.comments do
    
     xml.id comments.id
     xml.comment comments.comment
