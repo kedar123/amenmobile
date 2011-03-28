@@ -13,6 +13,32 @@ class ApiController < ApplicationController
       end   
   end  
   
+  def add_comment
+	@commenterror = ""
+	if   params[:comment].blank?  or params[:comment].length > 100
+		@commenterror = "Please Enter A Comment More Than 0 And Less Than 100 character"
+	else	
+	     comment = Comment.new(:prayer_id=>params[:prayer_id],:user_id=>current_user.id,:comment=>params[:comment])
+	     comment.save
+        end
+	respond_to do |format|
+		format.xml 
+        end
+	
+  end  
+  
+  def add_prayer_viewed
+      prayer = Prayer.find(params[:id])
+      prayer.viewed_no = prayer.viewed_no.to_i + 1
+      prayer.save
+  end  
+  
+  def add_prayer_prayed
+      prayer = Prayer.find(params[:id])
+      prayer.prayed_no = prayer.prayed_no.to_i + 1
+      prayer.save
+  end  
+  
   
   def get_my_ip_address
       @my_host_and_port = request.host_with_port
@@ -55,14 +81,10 @@ class ApiController < ApplicationController
     else
           @user.reject  @friend
     end  
-   
-   
     respond_to do |format|
       format.html 
       format.xml  
     end
-         
-
  end   
   
  def rejected_friends

@@ -19,7 +19,9 @@ Friendap::Application.routes.draw do
   match '/api/accept_invitation' => 'api#accept_invitation'
   match '/api/reject_invitation' => 'api#reject_invitation'
   match '/api/get_prayer_comments' => 'api#get_prayer_comments'
-  
+  match '/api/add_prayer_viewed' => 'api#add_prayer_viewed'
+  match '/api/add_prayer_prayed' => 'api#add_prayer_prayed'
+  match '/api/add_comment' => 'api#add_comment'
   match '/api/logout' => 'api#logout'
   match '/users/edit_image' => 'users#edit_image'
   match '/users/update_image' => 'users#update_image'
